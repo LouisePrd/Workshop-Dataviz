@@ -25,6 +25,7 @@
     "gsap": "^3.11.3",
     "matter-js": "^0.18.0",
     "paper": "^0.12.17",
+    "paper-jsdom": "^0.12.17",
     "pixi.js": "^7.0.4",
     "web-audio-oscillators": "^1.0.4"
   }
