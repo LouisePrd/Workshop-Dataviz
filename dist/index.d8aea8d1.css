@@ -1,0 +1,90 @@
+@font-face {
+  font-family: Plus Jakarta Sans;
+  src: url("PlusJakartaSans-VariableFont_wght.a0f55da4.ttf") format("truetype-variations");
+  font-weight: 1 999;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Plus Jakarta Sans;
+  src: url("PlusJakartaSans-Italic-VariableFont_wght.812c6f2c.ttf") format("truetype-variations");
+  font-weight: 1 999;
+  font-style: italic;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+:focus {
+  outline: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: Plus Jakarta Sans;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  font-size: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button, input, textarea {
+  font: inherit;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  color: inherit;
+  background-color: #0000;
+  background-image: none;
+  border: none;
+  border-radius: 0;
+}
+
+input {
+  width: 100%;
+}
+
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+h1, h2, h3, h4, h5 {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+small {
+  font-size: inherit;
+}
+
+img, video {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/*# sourceMappingURL=index.d8aea8d1.css.map */
