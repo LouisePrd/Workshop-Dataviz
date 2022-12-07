@@ -13,26 +13,6 @@ export function createGradients(data) {
   // TODO: debug
   paper.setup('userCanvas')
 
-  // console.log(data)
-
-  const sources = [
-    'shame',
-    'love',
-    'anger',
-    'anxiety',
-    'frustration',
-    'fear',
-    'jealousy',
-    'loneliness',
-    'boredom',
-    'pleasure',
-    'inspiration',
-    'regret',
-    'relief',
-    'sadness',
-    'satisfaction',
-  ]
-
   /* Child */
 
   let positiveData = data.moods.child.positive
@@ -49,11 +29,9 @@ export function createGradients(data) {
 
   for (let i = 0; i < sizeMoodList; i++) {
     if (i < sizeMoodList / 2) {
-      // positive
       mood = Object.keys(positiveData)[i]
       rate = Object.values(positiveData)[i]
     } else {
-      // negative
       mood = Object.keys(negativeData)[idNegative]
       rate = Object.values(negativeData)[idNegative]
       idNegative++
@@ -61,21 +39,39 @@ export function createGradients(data) {
 
     const divGradient1 = document.createElement('div')
     const divGradient2 = document.createElement('div')
-    divGradient1.classList.add(mood, 'one')
-    divGradient2.classList.add(mood, 'two')
+    divGradient1.classList.add(mood, 'div1', 'mainDiv')
+    divGradient2.classList.add(mood, 'div2', 'mainDiv')
 
     rateSize = rate * 60
-    divGradient1.setAttribute('height', rateSize)
-    divGradient2.setAttribute('height', rateSize)
+    divGradient1.style.height = rateSize + 'px'
+    divGradient1.style.width = rateSize + 'px'
+    divGradient2.style.height = rateSize + 'px'
+    divGradient2.style.width = rateSize + 'px'
+
     divGradient1.style.position = 'absolute'
     divGradient2.style.position = 'absolute'
 
-    tabGradients.push(divGradient1)
-    tabGradients.push(divGradient2)
-    // overlay.appendChild(image) // tableau
+    const randTop = getRandomIntFromInterval(10, 90)
+    const randLeft = getRandomIntFromInterval(0, 25)
+
+    divGradient1.style.top = `${randTop}%`
+    divGradient2.style.top = `${randTop}%`
+
+    divGradient1.style.left = `${randLeft}%`
+    divGradient2.style.left = `${randLeft}%`
+
+    overlay.appendChild(divGradient1)
+
+    console.log(divGradient1)
+
+    // tabGradients.push(divGradient1)
+    // tabGradients.push(divGradient2)
   }
 
-  console.log(tabGradients)
+  for (let i = 0; i < tabGradients.length; i++) {
+    // console.log(tabGradients[i])
+    // overlay.appendChild(tabGradients[i])
+  }
 
   /* Teen */
 
@@ -94,5 +90,5 @@ backBtn.addEventListener('click', () => {
     child.remove()
   })
   currentImages = []
-  // clear array
+  tabGradients = []
 })
