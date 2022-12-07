@@ -23,6 +23,7 @@
   "dependencies": {
     "@parcel/transformer-css": "^2.8.0",
     "gsap": "^3.11.3",
+    "noisejs": "^2.1.0",
     "paper": "^0.12.17"
   }
 }
