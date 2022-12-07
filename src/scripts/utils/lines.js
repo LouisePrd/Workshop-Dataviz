@@ -13,6 +13,8 @@ let users = 28
 let noise = new Noise(Math.random())
 
 export function createLines() {
+  const log = window.localStorage.getItem('data')
+  console.log(JSON.parse(log))
   let paths = []
 
   for (let i = 0; i <= users; i++) {
