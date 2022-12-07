@@ -6,6 +6,9 @@ import { Noise } from 'noisejs'
 import { overlay } from './dom'
 import { createGradients } from './gradients'
 
+const data = JSON.parse(window.localStorage.getItem('data'))
+// console.log(data)
+
 let amount = 10
 let height = 60
 let users = 28
@@ -13,11 +16,9 @@ let users = 28
 let noise = new Noise(Math.random())
 
 export function createLines() {
-  const log = window.localStorage.getItem('data')
-  console.log(JSON.parse(log))
   let paths = []
 
-  for (let i = 0; i <= users; i++) {
+  for (let i = 0; i < data.length; i++) {
     // Create a path
     let path = new Path({
       strokeColor: [0.5],
@@ -45,14 +46,17 @@ export function createLines() {
 
     path.onClick = function (event) {
       path.strokeColor = [1]
-      console.log(`Display the user canvas at id: ${i + 1}`)
+      console.log(`Display the user canvas for: ${data[i].name}`)
 
       // TODO: debug
+
+      // console.log(data[i]);
+
       // view.pause()
       overlay.classList.toggle('visible')
       isVisible = true
 
-      createGradients()
+      createGradients(data[i])
     }
 
     paths.push(path)

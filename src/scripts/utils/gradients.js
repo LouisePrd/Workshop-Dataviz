@@ -8,9 +8,11 @@ import { getRandomIntFromInterval } from './helpers'
 
 export let currentImages = []
 
-export function createGradients() {
+export function createGradients(data) {
   // TODO: debug
   paper.setup('userCanvas')
+
+  console.log(data)
 
   const sources = [
     'shame',
