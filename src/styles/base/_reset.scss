@@ -17,11 +17,12 @@ html {
 }
 
 body {
+  background-color: #141414;
   font-size: 1.6rem;
   font-family: 'Plus Jakarta Sans';
   line-height: 1.6;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow: hidden;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
@@ -73,11 +74,17 @@ small {
   font-size: inherit;
 }
 
-img,
-video {
-  height: auto;
+// img,
+// video {
+//   height: auto;
+//   width: 100%;
+//   display: block;
+//   object-fit: cover;
+//   object-position: center;
+// }
+
+/* Scale canvas with resize attribute to full size */
+canvas[resize] {
   width: 100%;
-  display: block;
-  object-fit: cover;
-  object-position: center;
+  height: 100%;
 }

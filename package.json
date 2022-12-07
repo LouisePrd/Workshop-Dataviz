@@ -1,5 +1,5 @@
 {
-  "name": "web-audio-api-experience",
+  "name": "workshop-dataviz",
   "version": "1.0.0",
   "description": "",
   "source": "src/index.html",
@@ -23,10 +23,6 @@
   "dependencies": {
     "@parcel/transformer-css": "^2.8.0",
     "gsap": "^3.11.3",
-    "matter-js": "^0.18.0",
-    "paper": "^0.12.17",
-    "paper-jsdom": "^0.12.17",
-    "pixi.js": "^7.0.4",
-    "web-audio-oscillators": "^1.0.4"
+    "paper": "^0.12.17"
   }
 }
