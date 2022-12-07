@@ -5,6 +5,7 @@
 export let canvas = document.getElementById('mainCanvas')
 export let overlay = document.querySelector('.overlay')
 export let backBtn = document.querySelector('.backBtn')
+export let tooltip = document.querySelector('.tooltip')
 
 let dpr = window.devicePixelRatio
 
