@@ -95,11 +95,11 @@ export function createLines(data) {
       for (let j = 0; j <= amount; j++) {
         let segment = child.path.segments[j]
 
-        // A cylic value between -1 and 1 and affected by sum
-        let sinus = Math.sin((event.time / 100) * i * 0.5 + j)
+        // A cylic value
+        let sinus = Math.sin((event.time / 200) * i + j)
 
         // Change the y position of the segment point
-        segment.point.y = view.size.height / 2 + sinus * child.sum
+        segment.point.y = view.size.height / 2 + sinus * child.sum + i
       }
     })
   }
