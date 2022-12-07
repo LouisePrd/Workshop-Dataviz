@@ -45,7 +45,8 @@ export function createLines() {
       path.strokeColor = [1]
       console.log(`Display the user canvas at id: ${i + 1}`)
 
-      view.pause()
+      // TODO: debug
+      // view.pause()
       overlay.classList.toggle('visible')
       isVisible = true
 
