@@ -47,7 +47,7 @@ export function createLines(data) {
 
       // TODO: debug
 
-      console.log(data[i])
+      // console.log(data[i])
 
       // view.pause()
       overlay.classList.toggle('visible')

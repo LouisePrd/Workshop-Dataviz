@@ -5,6 +5,7 @@
 import paper, { view } from 'paper'
 import { overlay, backBtn, cw, cw2, ch, ch2 } from './dom'
 import { getRandomIntFromInterval } from './helpers'
+import { overlay, backBtn } from './dom'
 
 export let currentImages = []
 
@@ -33,28 +34,31 @@ export function createGradients(data) {
   ]
 
   /* Child */
-  for (let i = 0; i < 5; i++) {
-    const maxWidth = view.size.width
-    const maxHeight = view.size.height
 
-    const randSrc = sources[getRandomIntFromInterval(0, sources.length - 1)]
-    const randPos = {
-      x: getRandomIntFromInterval(0, maxWidth),
-      y: getRandomIntFromInterval(0, maxHeight),
-    }
-    const randScale = getRandomIntFromInterval(100, 300)
+  const sizeMoodList = Object.keys(data.moods.period.child).length
 
-    let url = `./resources/${randSrc}.svg`
-    let raster = new Raster(url)
+  console.log(data.moods.period.child)
+  for (let i = 0; i < sizeMoodList; i++) {
+    const randHeight = getRandomIntFromInterval(50, 300)
+    const randTop = getRandomIntFromInterval(10, 90)
+    const randLeft = getRandomIntFromInterval(0, 25)
 
-    Raster.prototype.rescale = function (width, height) {
-      this.scale(width / this.width, height / this.height)
-    }
+    const divGradient1 = document.createElement('div')
+    const divGradient2 = document.createElement('div')
 
-    raster.onLoad = function () {
-      raster.setPosition({ ...randPos })
-      raster.rescale(randScale, randScale)
-    }
+    // add class
+    divGradient1.classList.add('divGradient', 'one')
+    divGradient2.classList.add('divGradient', 'two')
+
+
+    // image.setAttribute('src', `resources/${randSrc}.svg`)
+    // image.setAttribute('height', randHeight)
+    // image.style.position = 'absolute'
+    // image.style.top = `${randTop}%`
+    // image.style.left = `${randLeft}%`
+
+    // overlay.appendChild(image) // tableau
+    // currentImages.push(image)
   }
 
   /* Teen */
@@ -69,8 +73,6 @@ backBtn.addEventListener('click', () => {
 
   isVisible = false
   view.play()
-
-  // console.log(paper.projects)
 
   currentImages.map((child) => {
     child.remove()
