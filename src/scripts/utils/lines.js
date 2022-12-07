@@ -6,16 +6,13 @@ import { Noise } from 'noisejs'
 import { overlay } from './dom'
 import { createGradients } from './gradients'
 
-const data = JSON.parse(window.localStorage.getItem('data'))
-// console.log(data)
-
 let amount = 10
 let height = 60
 let users = 28
 
 let noise = new Noise(Math.random())
 
-export function createLines() {
+export function createLines(data) {
   let paths = []
 
   for (let i = 0; i < data.length; i++) {
@@ -50,7 +47,7 @@ export function createLines() {
 
       // TODO: debug
 
-      // console.log(data[i]);
+      console.log(data[i])
 
       // view.pause()
       overlay.classList.toggle('visible')

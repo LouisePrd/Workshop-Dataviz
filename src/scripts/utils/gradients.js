@@ -12,7 +12,7 @@ export function createGradients(data) {
   // TODO: debug
   paper.setup('userCanvas')
 
-  console.log(data)
+  // console.log(data)
 
   const sources = [
     'shame',
@@ -70,7 +70,7 @@ backBtn.addEventListener('click', () => {
   isVisible = false
   view.play()
 
-  console.log(paper.projects)
+  // console.log(paper.projects)
 
   currentImages.map((child) => {
     child.remove()

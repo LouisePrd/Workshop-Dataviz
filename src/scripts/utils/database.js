@@ -11,7 +11,6 @@ export async function fetchData() {
   const cleanData = structData(res)
   // console.log(structData(res))
   window.localStorage.setItem('data', JSON.stringify(cleanData))
-  console.log('stockage')
   return cleanData
 }
 

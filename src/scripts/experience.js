@@ -13,11 +13,17 @@ paper.install(window)
 window.addEventListener('load', async () => {
   paper.setup('mainCanvas')
 
+  let res
+
   if (window.localStorage.getItem('data') === null) {
-    await fetchData()
+    res = await fetchData()
+  } else {
+    res = window.localStorage.getItem('data')
   }
+
+  const data = JSON.parse(res)
 
   let isVisible = false
 
-  createLines()
+  createLines(data)
 })
