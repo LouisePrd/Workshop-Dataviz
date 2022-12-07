@@ -35,31 +35,47 @@ export function createGradients(data) {
 
   /* Child */
 
-  const sizeMoodList = Object.keys(data.moods.period.child).length
+  let positiveData = data.moods.child.positive
+  let negativeData = data.moods.child.negative
+  let sizeMoodList =
+    Object.keys(positiveData).length + Object.keys(negativeData).length
 
-  console.log(data.moods.period.child)
+  let idNegative = 0
+  let mood
+  let rate
+  let rateSize
+
+  let tabGradients = []
+
   for (let i = 0; i < sizeMoodList; i++) {
-    const randHeight = getRandomIntFromInterval(50, 300)
-    const randTop = getRandomIntFromInterval(10, 90)
-    const randLeft = getRandomIntFromInterval(0, 25)
+    if (i < sizeMoodList / 2) {
+      // positive
+      mood = Object.keys(positiveData)[i]
+      rate = Object.values(positiveData)[i]
+    } else {
+      // negative
+      mood = Object.keys(negativeData)[idNegative]
+      rate = Object.values(negativeData)[idNegative]
+      idNegative++
+    }
 
     const divGradient1 = document.createElement('div')
     const divGradient2 = document.createElement('div')
+    divGradient1.classList.add(mood, 'one')
+    divGradient2.classList.add(mood, 'two')
 
-    // add class
-    divGradient1.classList.add('divGradient', 'one')
-    divGradient2.classList.add('divGradient', 'two')
+    rateSize = rate * 60
+    divGradient1.setAttribute('height', rateSize)
+    divGradient2.setAttribute('height', rateSize)
+    divGradient1.style.position = 'absolute'
+    divGradient2.style.position = 'absolute'
 
-
-    // image.setAttribute('src', `resources/${randSrc}.svg`)
-    // image.setAttribute('height', randHeight)
-    // image.style.position = 'absolute'
-    // image.style.top = `${randTop}%`
-    // image.style.left = `${randLeft}%`
-
+    tabGradients.push(divGradient1)
+    tabGradients.push(divGradient2)
     // overlay.appendChild(image) // tableau
-    // currentImages.push(image)
   }
+
+  console.log(tabGradients)
 
   /* Teen */
 
@@ -78,4 +94,5 @@ backBtn.addEventListener('click', () => {
     child.remove()
   })
   currentImages = []
+  // clear array
 })
