@@ -1,66 +1,139 @@
-.layer {
-  position: fixed;
-  width: 100%;
+$white: #f8f8f8;
+$black: #212121;
+
+// .layer {
+//   position: fixed;
+//   width: 100%;
+//   height: 100%;
+//   background-image: url('../../static/resources/background.png');
+//   background-size: 10%;
+//   opacity: 0.3;
+//   z-index: 20;
+//   pointer-events: none;
+// }
+
+.splash {
   height: 100%;
-  background-image: url('../../static/resources/background.png');
-  background-size: 10%;
-  opacity: 0.3;
-  z-index: 20;
-  pointer-events: none;
-  // mix-blend-mode: difference;
+  width: 100%;
+  position: fixed;
+  background-color: $black;
+  z-index: 40;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.75s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition-property: opacity, visibility;
+  filter: url(#n1);
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__title {
+    font-family: 'Bagnard';
+    font-size: 12.8rem;
+  }
+
+  &__subtitle {
+    margin-top: -4rem;
+    font-weight: 500;
+  }
+
+  &__button {
+    margin-top: 2rem;
+    border: 0.1rem solid $white;
+    padding: 1.5rem 3rem;
+    border-radius: 0.8rem;
+    transition: 0.75s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-property: transform, color, background-color;
+    font-size: 1.4rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $white;
+      transform: scale(1.05);
+      color: $black;
+    }
+  }
 }
 
 .overlay {
   height: 100%;
   width: 100%;
   position: fixed;
-  background-color: #ffffff;
+  background-color: $black;
   top: 0;
   left: 0;
   opacity: 0;
   visibility: hidden;
   z-index: 10;
   transition: 0.75s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition-property: opacity, visibility;
 
   &.visible {
     opacity: 1;
     visibility: visible;
   }
 
-  #userCanvas {
-  }
-
   .backBtn {
-    color: black;
     position: absolute;
-    top: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
     left: 2rem;
-    cursor: pointer;
     z-index: 10;
-  }
+    border: 0.2rem solid $white;
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+    position: relative;
+    cursor: pointer;
+    transition: 0.75s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-property: transform, color, background-color;
 
-  img,
-  video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    object-fit: contain;
-    pointer-events: none;
+    &:hover {
+      background-color: $white;
+      transform: scale(1.05) translateY(-50%);
+    }
+
+    &:hover svg path {
+      stroke: $black;
+    }
+
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+
+      path {
+        transition: 0.75s cubic-bezier(0.215, 0.61, 0.355, 1);
+        transition-property: stroke;
+      }
+    }
   }
 }
 
 .tooltip {
   border-radius: 1.2rem;
-  padding: 1.5rem;
+  padding: 0.8rem;
   min-width: 10rem;
   position: absolute;
-  transform: translateY(-50%);
+  left: 0.8rem;
+  transform: translateY(-45%);
   opacity: 0;
   visibility: hidden;
-  background-color: white;
+  border: 0.1rem solid $white;
+  background-color: $black;
+  transition: 1.5s cubic-bezier(0.11, 0.9, 0.62, 1);
 
   &.visible {
     opacity: 1;
     visibility: visible;
+    transform: translateY(-50%);
   }
 }

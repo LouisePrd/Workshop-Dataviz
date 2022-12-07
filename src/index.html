@@ -6,22 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Workshop Dataviz</title>
     <link rel="stylesheet" href="assets/fonts/plus-jarkarta-sans/style.css" />
+    <link rel="stylesheet" href="assets/fonts/bagnard/style.css" />
     <script type="module" src="app.js"></script>
   </head>
+
   <body>
     <main id="app">
-      <!-- <div class="layer"></div> -->
+      <div class="splash visible">
+        <div class="splash__container">
+          <h1 class="splash__title">Au fil du temps</h1>
+          <p class="splash__subtitle">Une introspection graphique</p>
+          <button class="splash__button startBtn">Commencer</button>
+        </div>
+      </div>
+      <div class="layer"></div>
       <div class="tooltip"></div>
       <canvas id="mainCanvas" width="100%" height="100%" resize></canvas>
       <div class="overlay">
-        <button class="backBtn">Back</button>
+        <button class="backBtn">
+          <svg
+            width="23"
+            height="14"
+            viewBox="0 0 23 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7 1L1 7M1 7L7 13M1 7H21.5"
+              stroke="#F8F8F8"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
         <canvas id="userCanvas" width="100%" height="100%" resize></canvas>
       </div>
     </main>
-    <!-- <div class="raster-refs">
-      <img src="../static/resources/anger.svg" id="anger" />
-      <img src="../static/resources/anxiety.svg" id="anxiety" />
-      <img src="../static/resources/love.svg" id="love" />
-    </div> -->
+    <svg class="fixed inset-0 transform -translate-x-full">
+      <defs>
+        <filter id="n1">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.001 0.001"
+            numOctaves="5"
+            result="NOISE"
+            seed="2217"
+          ></feTurbulence>
+          <feGaussianBlur
+            in="SourceGraphic"
+            result="BLURRED"
+            stdDeviation="0"
+          ></feGaussianBlur>
+          <feDisplacementMap
+            id="displacer"
+            in2="NOISE"
+            in="BLURRED"
+            scale="40"
+            xChannelSelector="R"
+            yChannelSelector="R"
+            result="DISPLACED"
+          ></feDisplacementMap>
+        </filter>
+      </defs>
+    </svg>
   </body>
 </html>
