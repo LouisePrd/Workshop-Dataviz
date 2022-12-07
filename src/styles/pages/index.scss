@@ -48,3 +48,19 @@
     pointer-events: none;
   }
 }
+
+.tooltip {
+  border-radius: 1.2rem;
+  padding: 1.5rem;
+  min-width: 10rem;
+  position: absolute;
+  transform: translateY(-50%);
+  opacity: 0;
+  visibility: hidden;
+  background-color: white;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}

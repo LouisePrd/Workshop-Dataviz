@@ -3,7 +3,7 @@
  */
 
 import { Noise } from 'noisejs'
-import { overlay } from './dom'
+import { overlay, tooltip } from './dom'
 import { createGradients } from './gradients'
 
 let amount = 10
@@ -32,6 +32,11 @@ export function createLines(data) {
     path.onMouseEnter = function (event) {
       path.strokeColor = [1]
       path.strokeWidth = 6
+
+      tooltip.classList.add('visible')
+      tooltip.style.top = `${event.point.y}px`
+      tooltip.innerHTML = `${data[i].name}, ${data[i].age}`
+
       // document.body.style.cursor = 'pointer'
     }
 
@@ -39,14 +44,12 @@ export function createLines(data) {
       path.strokeColor = [0.5]
       path.strokeWidth = 3
       // document.body.style.cursor = 'auto'
+      tooltip.classList.remove('visible')
     }
 
     path.onClick = function (event) {
       path.strokeColor = [1]
       console.log(`Display the user canvas for: ${data[i].name}`)
-
-      // TODO: debug
-
       console.log(data[i])
 
       // view.pause()
@@ -63,15 +66,17 @@ export function createLines(data) {
     // Optimize this ?
     let nv = noise.simplex2(event.time / 10, event.time / 10)
 
-    paths.map((path, index) => {
-      for (let i = 0; i <= amount; i++) {
-        let segment = path.segments[i]
+    paths.map((path, i) => {
+      // console.log(data[i]);
+
+      for (let j = 0; j <= amount; j++) {
+        let segment = path.segments[j]
 
         // A cylic value between -1 and 1 modified by map and for loop indexes
-        let sinus = Math.sin((event.time / 10 + nv) * 0.5 + i * index)
+        let sinus = Math.sin((event.time / 10 + nv) * 0.5 + j * i)
 
         // Change the y position of the segment point
-        segment.point.y = sinus * height + index * 30
+        segment.point.y = sinus * height + i * 30
       }
     })
   }
