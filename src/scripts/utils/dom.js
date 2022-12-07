@@ -6,7 +6,7 @@ export let canvas = document.getElementById('mainCanvas')
 export let overlay = document.querySelector('.overlay')
 export let backBtn = document.querySelector('.backBtn')
 
-export let dpr = window.devicePixelRatio
+let dpr = window.devicePixelRatio
 
 canvas.width = window.innerWidth * dpr
 canvas.height = window.innerHeight * dpr

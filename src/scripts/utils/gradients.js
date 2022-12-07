@@ -2,12 +2,15 @@
  * Gradients
  */
 
-import { overlay, backBtn } from './dom'
+import paper, { view } from 'paper'
+import { overlay, backBtn, cw, cw2, ch, ch2 } from './dom'
 import { getRandomIntFromInterval } from './helpers'
 
 export let currentImages = []
 
 export function createGradients() {
+  paper.setup('userCanvas')
+
   const sources = [
     'shame',
     'love',
@@ -27,86 +30,35 @@ export function createGradients() {
   ]
 
   /* Child */
-  for (let i = 0; i <= 6; i++) {
-    const randHeight = getRandomIntFromInterval(50, 300)
-    const randTop = getRandomIntFromInterval(10, 90)
-    const randLeft = getRandomIntFromInterval(0, 25)
+  for (let i = 0; i < 5; i++) {
+    const maxWidth = view.size.width
+    const maxHeight = view.size.height
 
     const randSrc = sources[getRandomIntFromInterval(0, sources.length - 1)]
+    const randPos = {
+      x: getRandomIntFromInterval(0, maxWidth),
+      y: getRandomIntFromInterval(0, maxHeight),
+    }
+    const randScale = getRandomIntFromInterval(100, 300)
 
-    const image = document.createElement('img')
-    image.setAttribute('src', `resources/${randSrc}.svg`)
-    image.setAttribute('height', randHeight)
+    let url = `./resources/${randSrc}.svg`
+    let raster = new Raster(url)
 
-    image.style.position = 'absolute'
-    image.style.top = `${randTop}%`
-    image.style.left = `${randLeft}%`
+    Raster.prototype.rescale = function (width, height) {
+      this.scale(width / this.width, height / this.height)
+    }
 
-    overlay.appendChild(image)
-    currentImages.push(image)
+    raster.onLoad = function () {
+      raster.setPosition({ ...randPos })
+      raster.rescale(randScale, randScale)
+    }
   }
 
   /* Teen */
-  for (let i = 0; i <= 6; i++) {
-    const randWidth = getRandomIntFromInterval(50, 300)
-    const randTop = getRandomIntFromInterval(10, 90)
-    const randLeft = getRandomIntFromInterval(25, 50)
-
-    const randSrc = sources[getRandomIntFromInterval(0, sources.length - 1)]
-
-    const image = document.createElement('img')
-    image.setAttribute('src', `resources/${randSrc}.svg`)
-    image.setAttribute('width', randWidth)
-
-    image.style.position = 'absolute'
-    image.style.top = `${randTop}%`
-    image.style.left = `${randWidth - randLeft}%`
-
-    console.log(image.style.left)
-
-    overlay.appendChild(image)
-    currentImages.push(image)
-  }
 
   /* Young adult */
-  for (let i = 0; i <= 6; i++) {
-    const randHeight = getRandomIntFromInterval(50, 300)
-    const randTop = getRandomIntFromInterval(10, 90)
-    const randLeft = getRandomIntFromInterval(50, 75)
-
-    const randSrc = sources[getRandomIntFromInterval(0, sources.length - 1)]
-
-    const image = document.createElement('img')
-    image.setAttribute('src', `resources/${randSrc}.svg`)
-    image.setAttribute('height', randHeight)
-
-    image.style.position = 'absolute'
-    image.style.top = `${randTop}%`
-    image.style.left = `${randLeft}%`
-
-    overlay.appendChild(image)
-    currentImages.push(image)
-  }
 
   /* Adult */
-  for (let i = 0; i <= 6; i++) {
-    const randHeight = getRandomIntFromInterval(50, 300)
-    const randTop = getRandomIntFromInterval(10, 90)
-    const randLeft = getRandomIntFromInterval(75, 100)
-
-    const randSrc = sources[getRandomIntFromInterval(0, sources.length - 1)]
-
-    const image = document.createElement('img')
-    image.setAttribute('src', `resources/${randSrc}.svg`)
-    image.setAttribute('height', randHeight)
-
-    image.style.position = 'absolute'
-    image.style.top = `${randTop}%`
-    image.style.left = `${randLeft}%`
-
-    overlay.appendChild(image)
-    currentImages.push(image)
-  }
 }
 
 backBtn.addEventListener('click', () => {
@@ -114,6 +66,8 @@ backBtn.addEventListener('click', () => {
 
   isVisible = false
   view.play()
+
+  console.log(paper.projects)
 
   currentImages.map((child) => {
     child.remove()
