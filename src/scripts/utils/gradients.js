@@ -2,7 +2,7 @@
  * Gradients
  */
 
-import { overlay, overlayTitle, overlayWrapper, backBtn } from './dom'
+import { overlay, overlayTitle, overlayWrapper, backBtn, filterPositiveBtn, filterNegativeBtn} from './dom'
 import { getRandomIntFromInterval } from './helpers'
 
 export let tabGradients = []
@@ -14,6 +14,7 @@ export function createGradients(data) {
   let rate
   let rateSize
   let age
+  let moodType
 
   /* Child */
 
@@ -27,9 +28,11 @@ export function createGradients(data) {
     if (i < sizeMoodList / 2) {
       mood = Object.keys(positiveDataChild)[i]
       rate = Object.values(positiveDataChild)[i]
+      moodType = 'positive'
     } else {
       mood = Object.keys(negativeDataChild)[idNegative]
       rate = Object.values(negativeDataChild)[idNegative]
+      moodType = 'negative'
       idNegative++
     }
 
@@ -52,10 +55,10 @@ export function createGradients(data) {
 
     const randTop = getRandomIntFromInterval(10, 90)
     const randLeft = getRandomIntFromInterval(0, 19)
+    
     age = 'child'
-
     const wrapperDiv = document.createElement('div')
-    wrapperDiv.classList.add(`${age}${mood}`)
+    wrapperDiv.classList.add(`${age}${mood}`, moodType)
     
     wrapperDiv.style.width = rateSize + 'px'
     wrapperDiv.style.height = rateSize + 'px'
@@ -80,9 +83,11 @@ export function createGradients(data) {
     if (i < sizeMoodList / 2) {
       mood = Object.keys(positiveDataTeen)[i]
       rate = Object.values(positiveDataTeen)[i]
+      moodType = 'positive'
     } else {
       mood = Object.keys(negativeDataTeen)[idNegative]
       rate = Object.values(negativeDataTeen)[idNegative]
+      moodType = 'negative'
       idNegative++
     }
 
@@ -108,7 +113,7 @@ export function createGradients(data) {
 
     age = 'teen'
     const wrapperDiv = document.createElement('div')
-    wrapperDiv.classList.add(`${age}${mood}`)
+    wrapperDiv.classList.add(`${age}${mood}`, moodType)
 
     wrapperDiv.style.width = rateSize + 'px'
     wrapperDiv.style.height = rateSize + 'px'
@@ -133,9 +138,11 @@ export function createGradients(data) {
     if (i < sizeMoodList / 2) {
       mood = Object.keys(positiveDataYa)[i]
       rate = Object.values(positiveDataYa)[i]
+      moodType = 'positive'
     } else {
       mood = Object.keys(negativeDataYa)[idNegative]
       rate = Object.values(negativeDataYa)[idNegative]
+      moodType = 'negative'
       idNegative++
     }
 
@@ -161,7 +168,7 @@ export function createGradients(data) {
 
     age = 'ya'
     const wrapperDiv = document.createElement('div')
-    wrapperDiv.classList.add(`${age}${mood}`)
+    wrapperDiv.classList.add(`${age}${mood}`, moodType)
 
     wrapperDiv.style.width = rateSize + 'px'
     wrapperDiv.style.height = rateSize + 'px'
@@ -186,9 +193,11 @@ export function createGradients(data) {
     if (i < sizeMoodList / 2) {
       mood = Object.keys(positiveDataAdult)[i]
       rate = Object.values(positiveDataAdult)[i]
+      moodType = 'positive'
     } else {
       mood = Object.keys(negativeDataAdult)[idNegative]
       rate = Object.values(negativeDataAdult)[idNegative]
+      moodType = 'negative'
       idNegative++
     }
 
@@ -214,7 +223,7 @@ export function createGradients(data) {
 
     age = 'adult'
     const wrapperDiv = document.createElement('div')
-    wrapperDiv.classList.add(`${age}${mood}`)
+    wrapperDiv.classList.add(`${age}${mood}`, moodType)
 
     wrapperDiv.style.width = rateSize + 'px'
     wrapperDiv.style.height = rateSize + 'px'
@@ -227,10 +236,6 @@ export function createGradients(data) {
 
     tabGradients.push(wrapperDiv)
   }
-
-  // for (let i = 0; i < tabGradients.length; i++) {
-  //   overlayWrapper.appendChild(tabGradients[i])
-  // }
 
   tabGradients.forEach((child, i) => {
     overlayWrapper.appendChild(tabGradients[i])
@@ -251,4 +256,17 @@ backBtn.addEventListener('click', () => {
   }
 
   tabGradients = []
+})
+
+filterPositiveBtn.addEventListener('click', () => {
+  console.log(tabGradients)
+  console.log('positive')
+  filterPositiveBtn.classList.add('active')
+  filterNegativeBtn.classList.remove('active')
+})
+
+filterNegativeBtn.addEventListener('click', () => {
+  console.log('negative')
+  filterPositiveBtn.classList.remove('active')
+  filterNegativeBtn.classList.add('active')
 })
