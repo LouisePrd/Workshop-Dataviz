@@ -41,27 +41,27 @@ export function createGradients(data) {
 
     rateSize = rate * 50
 
-    divGradient1.style.height = rateSize + 'px'
-    divGradient2.style.height = rateSize + 'px'
+    divGradient1.style.height = 'inherit'
+    divGradient2.style.height = 'inherit'
 
-    divGradient1.style.width = rateSize + 'px'
-    divGradient2.style.width = rateSize + 'px'
+    divGradient1.style.width = 'inherit'
+    divGradient2.style.width = 'inherit'
 
-    divGradient1.style.position = 'absolute'
-    divGradient2.style.position = 'absolute'
+    divGradient1.style.position = 'inherit'
+    divGradient2.style.position = 'inherit'
 
     const randTop = getRandomIntFromInterval(10, 90)
     const randLeft = getRandomIntFromInterval(0, 19)
-
-    divGradient1.style.top = `${randTop}%`
-    divGradient2.style.top = `${randTop}%`
-
-    divGradient1.style.left = `${randLeft}%`
-    divGradient2.style.left = `${randLeft}%`
-
     age = 'child'
+
     const wrapperDiv = document.createElement('div')
     wrapperDiv.classList.add(`${age}${mood}`)
+    
+    wrapperDiv.style.width = rateSize + 'px'
+    wrapperDiv.style.height = rateSize + 'px'
+    wrapperDiv.style.position = 'absolute'
+    wrapperDiv.style.top = `${randTop}%`
+    wrapperDiv.style.left = `${randLeft}%`
 
     wrapperDiv.appendChild(divGradient1)
     wrapperDiv.appendChild(divGradient2)
@@ -94,27 +94,27 @@ export function createGradients(data) {
 
     rateSize = rate * 50
 
-    divGradient1.style.height = rateSize + 'px'
-    divGradient2.style.height = rateSize + 'px'
+    divGradient1.style.height = 'inherit'
+    divGradient2.style.height = 'inherit'
 
-    divGradient1.style.width = rateSize + 'px'
-    divGradient2.style.width = rateSize + 'px'
+    divGradient1.style.width = 'inherit'
+    divGradient2.style.width = 'inherit'
 
-    divGradient1.style.position = 'absolute'
-    divGradient2.style.position = 'absolute'
+    divGradient1.style.position = 'inherit'
+    divGradient2.style.position = 'inherit'
 
     const randTop = getRandomIntFromInterval(10, 90)
     const randLeft = getRandomIntFromInterval(27, 46)
 
-    divGradient1.style.top = `${randTop}%`
-    divGradient2.style.top = `${randTop}%`
-
-    divGradient1.style.left = `${randLeft}%`
-    divGradient2.style.left = `${randLeft}%`
-
     age = 'teen'
     const wrapperDiv = document.createElement('div')
     wrapperDiv.classList.add(`${age}${mood}`)
+
+    wrapperDiv.style.width = rateSize + 'px'
+    wrapperDiv.style.height = rateSize + 'px'
+    wrapperDiv.style.position = 'absolute'
+    wrapperDiv.style.top = `${randTop}%`
+    wrapperDiv.style.left = `${randLeft}%`
 
     wrapperDiv.appendChild(divGradient1)
     wrapperDiv.appendChild(divGradient2)
@@ -147,27 +147,27 @@ export function createGradients(data) {
 
     rateSize = rate * 50
 
-    divGradient1.style.height = rateSize + 'px'
-    divGradient2.style.height = rateSize + 'px'
+    divGradient1.style.height = 'inherit'
+    divGradient2.style.height = 'inherit'
 
-    divGradient1.style.width = rateSize + 'px'
-    divGradient2.style.width = rateSize + 'px'
+    divGradient1.style.width = 'inherit'
+    divGradient2.style.width = 'inherit'
 
-    divGradient1.style.position = 'absolute'
-    divGradient2.style.position = 'absolute'
+    divGradient1.style.position = 'inherit'
+    divGradient2.style.position = 'inherit'
 
     const randTop = getRandomIntFromInterval(10, 90)
     const randLeft = getRandomIntFromInterval(54, 73)
 
-    divGradient1.style.top = `${randTop}%`
-    divGradient2.style.top = `${randTop}%`
-
-    divGradient1.style.left = `${randLeft}%`
-    divGradient2.style.left = `${randLeft}%`
-
     age = 'ya'
     const wrapperDiv = document.createElement('div')
-    wrapperDiv.classList.add(`${age}${mood}`)    
+    wrapperDiv.classList.add(`${age}${mood}`)
+
+    wrapperDiv.style.width = rateSize + 'px'
+    wrapperDiv.style.height = rateSize + 'px'
+    wrapperDiv.style.position = 'absolute'
+    wrapperDiv.style.top = `${randTop}%`
+    wrapperDiv.style.left = `${randLeft}%`
 
     wrapperDiv.appendChild(divGradient1)
     wrapperDiv.appendChild(divGradient2)
@@ -200,27 +200,27 @@ export function createGradients(data) {
 
     rateSize = rate * 50
 
-    divGradient1.style.height = rateSize + 'px'
-    divGradient2.style.height = rateSize + 'px'
+    divGradient1.style.height = 'inherit'
+    divGradient2.style.height = 'inherit'
 
-    divGradient1.style.width = rateSize + 'px'
-    divGradient2.style.width = rateSize + 'px'
+    divGradient1.style.width = 'inherit'
+    divGradient2.style.width = 'inherit'
 
-    divGradient1.style.position = 'absolute'
-    divGradient2.style.position = 'absolute'
+    divGradient1.style.position = 'inherit'
+    divGradient2.style.position = 'inherit'
 
     const randTop = getRandomIntFromInterval(10, 90)
     const randLeft = getRandomIntFromInterval(81, 100)
 
-    divGradient1.style.top = `${randTop}%`
-    divGradient2.style.top = `${randTop}%`
-
-    divGradient1.style.left = `${randLeft}%`
-    divGradient2.style.left = `${randLeft}%`
-
     age = 'adult'
     const wrapperDiv = document.createElement('div')
-    wrapperDiv.classList.add(`${age}${mood}`)    
+    wrapperDiv.classList.add(`${age}${mood}`)
+
+    wrapperDiv.style.width = rateSize + 'px'
+    wrapperDiv.style.height = rateSize + 'px'
+    wrapperDiv.style.position = 'absolute'
+    wrapperDiv.style.top = `${randTop}%`
+    wrapperDiv.style.left = `${randLeft}%`
     
     wrapperDiv.appendChild(divGradient1)
     wrapperDiv.appendChild(divGradient2)
@@ -228,13 +228,14 @@ export function createGradients(data) {
     tabGradients.push(wrapperDiv)
   }
 
-  for (let i = 0; i < tabGradients.length; i++) {
-    overlayWrapper.appendChild(tabGradients[i])
-  }
-
   // for (let i = 0; i < tabGradients.length; i++) {
   //   overlayWrapper.appendChild(tabGradients[i])
   // }
+
+  tabGradients.forEach((child, i) => {
+    overlayWrapper.appendChild(tabGradients[i])
+  })
+
 }
 
 
