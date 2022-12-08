@@ -87,7 +87,7 @@ export function createLines(data) {
         overlayTitle.classList.remove('animate')
       })
 
-      // createGradients(data[i])
+      createGradients(data[i])
     }
 
     paths.push({ path, sum })
