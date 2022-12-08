@@ -8,10 +8,12 @@ import { getRandomIntFromInterval } from './helpers'
 export let tabGradients = []
 
 export function createGradients(data) {
+
   let idNegative = 0
   let mood
   let rate
   let rateSize
+  let age
 
   /* Child */
 
@@ -57,8 +59,14 @@ export function createGradients(data) {
     divGradient1.style.left = `${randLeft}%`
     divGradient2.style.left = `${randLeft}%`
 
-    tabGradients.push(divGradient1)
-    tabGradients.push(divGradient2)
+    age = 'child'
+    const wrapperDiv = document.createElement('div')
+    wrapperDiv.classList.add(`${age}${mood}`)
+
+    wrapperDiv.appendChild(divGradient1)
+    wrapperDiv.appendChild(divGradient2)
+
+    tabGradients.push(wrapperDiv)
   }
 
   /* Teen */
@@ -104,8 +112,14 @@ export function createGradients(data) {
     divGradient1.style.left = `${randLeft}%`
     divGradient2.style.left = `${randLeft}%`
 
-    tabGradients.push(divGradient1)
-    tabGradients.push(divGradient2)
+    age = 'teen'
+    const wrapperDiv = document.createElement('div')
+    wrapperDiv.classList.add(`${age}${mood}`)
+
+    wrapperDiv.appendChild(divGradient1)
+    wrapperDiv.appendChild(divGradient2)
+
+    tabGradients.push(wrapperDiv)
   }
 
   /* Young adult */
@@ -151,8 +165,14 @@ export function createGradients(data) {
     divGradient1.style.left = `${randLeft}%`
     divGradient2.style.left = `${randLeft}%`
 
-    tabGradients.push(divGradient1)
-    tabGradients.push(divGradient2)
+    age = 'ya'
+    const wrapperDiv = document.createElement('div')
+    wrapperDiv.classList.add(`${age}${mood}`)    
+
+    wrapperDiv.appendChild(divGradient1)
+    wrapperDiv.appendChild(divGradient2)
+
+    tabGradients.push(wrapperDiv)
   }
 
   /* Adult */
@@ -198,18 +218,26 @@ export function createGradients(data) {
     divGradient1.style.left = `${randLeft}%`
     divGradient2.style.left = `${randLeft}%`
 
-    tabGradients.push(divGradient1)
-    tabGradients.push(divGradient2)
+    age = 'adult'
+    const wrapperDiv = document.createElement('div')
+    wrapperDiv.classList.add(`${age}${mood}`)    
+    
+    wrapperDiv.appendChild(divGradient1)
+    wrapperDiv.appendChild(divGradient2)
+
+    tabGradients.push(wrapperDiv)
   }
 
-  tabGradients.forEach((child, i) => {
+  for (let i = 0; i < tabGradients.length; i++) {
     overlayWrapper.appendChild(tabGradients[i])
-  })
+  }
 
   // for (let i = 0; i < tabGradients.length; i++) {
   //   overlayWrapper.appendChild(tabGradients[i])
   // }
 }
+
+
 
 backBtn.addEventListener('click', () => {
   overlay.classList.remove('visible')
