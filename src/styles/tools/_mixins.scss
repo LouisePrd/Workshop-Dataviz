@@ -1,13 +1,26 @@
+@mixin gradientBgOverlay($color1, $color2, $color3, $color4, $color5, $color6, $blur) {
+  background: conic-gradient(from 180deg at 50% 50%,
+    #{$color1} 0deg,
+    #{$color2} 82.5deg,
+    #{$color3} 162.37deg,
+    #{$color4} 233.62deg,
+    #{$color5} 310.5deg,
+    #{$color6} 360deg);
+  mix-blend-mode: overlay;
+  filter: blur(#{$blur}px);
+}
+
 @mixin gradientBg($color1, $color2, $color3, $color4, $color5, $color6, $blur) {
-    background: conic-gradient(
-      from 180deg at 50% 50%,
-      "#{$color1}"0deg,
-      "#{$color2}"82.5deg,
-      "#{$color3}"162.37deg,
-      "#{$color4}"233.62deg,
-      "#{$color5}"310.5deg,
-      "#{$color6}"360deg
-    );
-    mix-blend-mode: overlay;
-    filter: #{$blur}px;
-  }
+  background: conic-gradient(from 180deg at 50% 50%,
+    #{$color1} 0deg,
+    #{$color2} 82.5deg,
+    #{$color3} 162.37deg,
+    #{$color4} 233.62deg,
+    #{$color5} 310.5deg,
+    #{$color6} 360deg);
+  filter: blur(#{$blur}px);
+}
+
+@mixin borderBlue {
+  border: 2px solid #0000FF;
+}
