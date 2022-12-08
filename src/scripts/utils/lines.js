@@ -5,6 +5,7 @@
 import { overlay, overlayTitle, tooltip } from './dom'
 import { createGradients } from './gradients'
 
+// Maybe play with this instead
 let amount = 10
 
 export function createLines(data) {
@@ -60,8 +61,6 @@ export function createLines(data) {
 
       document.body.style.cursor = 'pointer'
 
-      console.log(sum)
-
       // view.pause()
     }
 
@@ -78,9 +77,7 @@ export function createLines(data) {
     path.onClick = function (event) {
       path.strokeColor = [1]
       console.log(`Display the user canvas for: ${data[i].name}`)
-      console.log(data[i].moods.child)
       overlay.classList.toggle('visible')
-      isVisible = true
 
       // TODO: move this later on
       overlayTitle.innerHTML = data[i].name

@@ -25,10 +25,10 @@ window.addEventListener('load', async () => {
   if (window.localStorage.getItem('data') === null) {
     res = await fetchData()
   } else {
-    res = window.localStorage.getItem('data')
+    res = JSON.parse(window.localStorage.getItem('data'))
   }
 
-  const data = JSON.parse(res)
+  const data = res
 
   let isVisible = false
 
