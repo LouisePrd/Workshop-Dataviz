@@ -78,9 +78,9 @@ export function createLines(data) {
     path.onClick = function (event) {
       path.strokeColor = [1]
       console.log(`Display the user canvas for: ${data[i].name}`)
+
       overlay.classList.toggle('visible')
 
-      // TODO: move this later on
       overlayTitle.innerHTML = data[i].name
       overlayTitle.classList.add('animate')
       overlayTitle.addEventListener('animationend', () => {
