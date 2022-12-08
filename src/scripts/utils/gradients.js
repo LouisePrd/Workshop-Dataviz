@@ -69,8 +69,17 @@ export function createGradients(data) {
     wrapperDiv.style.width = rateSize + 'px'
     wrapperDiv.style.height = rateSize + 'px'
     wrapperDiv.style.position = 'absolute'
-    wrapperDiv.style.top = `${randTop}%`
-    wrapperDiv.style.left = `${randLeft}%`
+    
+    if (localStorage.getItem(`${age}${mood}top`)) {
+      wrapperDiv.style.top = localStorage.getItem(`${age}${mood}top`) + '%'
+      wrapperDiv.style.left = localStorage.getItem(`${age}${mood}left`) + '%'
+    } else {
+      wrapperDiv.style.top = `${randTop}%`
+      wrapperDiv.style.left = `${randLeft}%`
+      localStorage.setItem(`${age}${mood}top`, randTop)
+      localStorage.setItem(`${age}${mood}left`, randLeft)
+    }
+
 
     wrapperDiv.appendChild(divGradient1)
     wrapperDiv.appendChild(divGradient2)
@@ -124,8 +133,17 @@ export function createGradients(data) {
     wrapperDiv.style.width = rateSize + 'px'
     wrapperDiv.style.height = rateSize + 'px'
     wrapperDiv.style.position = 'absolute'
-    wrapperDiv.style.top = `${randTop}%`
-    wrapperDiv.style.left = `${randLeft}%`
+    
+    if (localStorage.getItem(`${age}${mood}top`)) {
+      wrapperDiv.style.top = localStorage.getItem(`${age}${mood}top`) + '%'
+      wrapperDiv.style.left = localStorage.getItem(`${age}${mood}left`) + '%'
+    } else {
+      wrapperDiv.style.top = `${randTop}%`
+      wrapperDiv.style.left = `${randLeft}%`
+      localStorage.setItem(`${age}${mood}top`, randTop)
+      localStorage.setItem(`${age}${mood}left`, randLeft)
+    }
+
 
     wrapperDiv.appendChild(divGradient1)
     wrapperDiv.appendChild(divGradient2)
@@ -179,8 +197,17 @@ export function createGradients(data) {
     wrapperDiv.style.width = rateSize + 'px'
     wrapperDiv.style.height = rateSize + 'px'
     wrapperDiv.style.position = 'absolute'
-    wrapperDiv.style.top = `${randTop}%`
-    wrapperDiv.style.left = `${randLeft}%`
+    
+    if (localStorage.getItem(`${age}${mood}top`)) {
+      wrapperDiv.style.top = localStorage.getItem(`${age}${mood}top`) + '%'
+      wrapperDiv.style.left = localStorage.getItem(`${age}${mood}left`) + '%'
+    } else {
+      wrapperDiv.style.top = `${randTop}%`
+      wrapperDiv.style.left = `${randLeft}%`
+      localStorage.setItem(`${age}${mood}top`, randTop)
+      localStorage.setItem(`${age}${mood}left`, randLeft)
+    }
+
 
     wrapperDiv.appendChild(divGradient1)
     wrapperDiv.appendChild(divGradient2)
@@ -234,8 +261,16 @@ export function createGradients(data) {
     wrapperDiv.style.width = rateSize + 'px'
     wrapperDiv.style.height = rateSize + 'px'
     wrapperDiv.style.position = 'absolute'
-    wrapperDiv.style.top = `${randTop}%`
-    wrapperDiv.style.left = `${randLeft}%`
+
+    if (localStorage.getItem(`${age}${mood}top`)) {
+      wrapperDiv.style.top = localStorage.getItem(`${age}${mood}top`) + '%'
+      wrapperDiv.style.left = localStorage.getItem(`${age}${mood}left`) + '%'
+    } else {
+      wrapperDiv.style.top = `${randTop}%`
+      wrapperDiv.style.left = `${randLeft}%`
+      localStorage.setItem(`${age}${mood}top`, randTop)
+      localStorage.setItem(`${age}${mood}left`, randLeft)
+    }
 
     wrapperDiv.appendChild(divGradient1)
     wrapperDiv.appendChild(divGradient2)
