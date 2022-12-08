@@ -3,14 +3,12 @@
  */
 
 import paper, { view } from 'paper'
-import { currentImages, overlay } from './utils/gradients'
 import { createLines } from './utils/lines'
 import { splash, startBtn, overlay, canvas } from './utils/dom'
 import { fetchData } from './utils/database'
 
 paper.install(window)
 paper.setup('mainCanvas')
-view.pause()
 
 window.addEventListener('load', async () => {
   canvas.style.display = "none"

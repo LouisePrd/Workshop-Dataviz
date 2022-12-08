@@ -2,8 +2,7 @@
  * Gradients
  */
 
-import paper, { view } from 'paper'
-import { overlay, overlayWrapper, backBtn, cw, cw2, ch, ch2 } from './dom'
+import { overlay, overlayTitle, overlayWrapper, backBtn } from './dom'
 import { getRandomIntFromInterval } from './helpers'
 
 export let tabGradients = []
@@ -164,7 +163,6 @@ export function createGradients(data) {
   idNegative = 0
 
   for (let i = 0; i < sizeMoodList; i++) {
-    console.log(i)
     if (i < sizeMoodList / 2) {
       mood = Object.keys(positiveDataAdult)[i]
       rate = Object.values(positiveDataAdult)[i]
@@ -204,16 +202,20 @@ export function createGradients(data) {
     tabGradients.push(divGradient2)
   }
 
-  for (let i = 0; i < tabGradients.length; i++) {
+  tabGradients.forEach((child, i) => {
     overlayWrapper.appendChild(tabGradients[i])
-  }
+  })
+
+  // for (let i = 0; i < tabGradients.length; i++) {
+  //   overlayWrapper.appendChild(tabGradients[i])
+  // }
 }
 
 backBtn.addEventListener('click', () => {
-  overlay.classList.toggle('visible')
+  overlay.classList.remove('visible')
+  overlayTitle.classList.remove('animate')
 
   isVisible = false
-  view.play()
 
   for (let i = 0; i < tabGradients.length; i++) {
     overlayWrapper.removeChild(tabGradients[i])

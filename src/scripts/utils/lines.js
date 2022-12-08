@@ -2,7 +2,7 @@
  * Lines
  */
 
-import { overlay, overlayTitle, tooltip } from './dom'
+import { overlay, overlayWrapper, overlayTitle, tooltip } from './dom'
 import { createGradients } from './gradients'
 
 // Maybe play with this instead
@@ -61,8 +61,6 @@ export function createLines(data) {
       tooltip.innerHTML = `${data[i].name}, ${data[i].age} ans`
 
       document.body.style.cursor = 'pointer'
-
-      // view.pause()
     }
 
     path.onMouseLeave = function (event) {
@@ -77,16 +75,12 @@ export function createLines(data) {
 
     path.onClick = function (event) {
       path.strokeColor = [1]
-      console.log(`Display the user canvas for: ${data[i].name}`)
 
-      overlay.classList.toggle('visible')
+      overlay.classList.add('visible')
+      overlayWrapper.classList.add("visible")
 
       overlayTitle.innerHTML = data[i].name
       overlayTitle.classList.add('animate')
-      overlayTitle.addEventListener('animationend', () => {
-        overlayTitle.classList.remove('animate')
-      })
-
       createGradients(data[i])
     }
 
