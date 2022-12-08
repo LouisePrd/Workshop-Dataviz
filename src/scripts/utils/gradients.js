@@ -2,13 +2,19 @@
  * Gradients
  */
 
-import { overlay, overlayTitle, overlayWrapper, backBtn, filterPositiveBtn, filterNegativeBtn} from './dom'
+import {
+  overlay,
+  overlayTitle,
+  overlayWrapper,
+  backBtn,
+  filterPositiveBtn,
+  filterNegativeBtn,
+} from './dom'
 import { getRandomIntFromInterval } from './helpers'
 
 export let tabGradients = []
 
 export function createGradients(data) {
-
   let idNegative = 0
   let mood
   let rate
@@ -55,11 +61,11 @@ export function createGradients(data) {
 
     const randTop = getRandomIntFromInterval(10, 90)
     const randLeft = getRandomIntFromInterval(0, 19)
-    
+
     age = 'child'
     const wrapperDiv = document.createElement('div')
     wrapperDiv.classList.add(`${age}${mood}`, moodType)
-    
+
     wrapperDiv.style.width = rateSize + 'px'
     wrapperDiv.style.height = rateSize + 'px'
     wrapperDiv.style.position = 'absolute'
@@ -230,7 +236,7 @@ export function createGradients(data) {
     wrapperDiv.style.position = 'absolute'
     wrapperDiv.style.top = `${randTop}%`
     wrapperDiv.style.left = `${randLeft}%`
-    
+
     wrapperDiv.appendChild(divGradient1)
     wrapperDiv.appendChild(divGradient2)
 
@@ -240,10 +246,7 @@ export function createGradients(data) {
   tabGradients.forEach((child, i) => {
     overlayWrapper.appendChild(tabGradients[i])
   })
-
 }
-
-
 
 backBtn.addEventListener('click', () => {
   overlay.classList.remove('visible')
@@ -252,21 +255,78 @@ backBtn.addEventListener('click', () => {
   isVisible = false
 
   for (let i = 0; i < tabGradients.length; i++) {
-    overlayWrapper.removeChild(tabGradients[i])
+    if (overlayWrapper.contains(tabGradients[i])) {
+      overlayWrapper.removeChild(tabGradients[i])
+    }
   }
 
   tabGradients = []
 })
 
 filterPositiveBtn.addEventListener('click', () => {
-  console.log(tabGradients)
-  console.log('positive')
-  filterPositiveBtn.classList.add('active')
-  filterNegativeBtn.classList.remove('active')
+  if (filterPositiveBtn.classList.contains('active')) {
+    console.log('positive if 1')
+    for (let i = 0; i < tabGradients.length; i++) {
+      if (tabGradients[i].classList.contains('negative')) {
+        overlayWrapper.appendChild(tabGradients[i])
+      }
+    }
+    filterPositiveBtn.classList.remove('active')
+  } else if (filterNegativeBtn.classList.contains('active')) {
+    console.log('positive if 2')
+    filterPositiveBtn.classList.add('active')
+    filterNegativeBtn.classList.remove('active')
+    for (let i = 0; i < tabGradients.length; i++) {
+      if (tabGradients[i].classList.contains('negative')) {
+        overlayWrapper.removeChild(tabGradients[i])
+      }
+    }
+    for (let i = 0; i < tabGradients.length; i++) {
+      if (tabGradients[i].classList.contains('positive')) {
+        overlayWrapper.appendChild(tabGradients[i])
+      }
+    }
+  } else {
+    console.log('positive else')
+    for (let i = 0; i < tabGradients.length; i++) {
+      if (tabGradients[i].classList.contains('negative')) {
+        overlayWrapper.removeChild(tabGradients[i])
+      }
+    }
+    filterPositiveBtn.classList.add('active')
+  }
 })
 
 filterNegativeBtn.addEventListener('click', () => {
-  console.log('negative')
-  filterPositiveBtn.classList.remove('active')
-  filterNegativeBtn.classList.add('active')
+  if (filterNegativeBtn.classList.contains('active')) {
+    console.log('negative if 1')
+    for (let i = 0; i < tabGradients.length; i++) {
+      if (tabGradients[i].classList.contains('positive')) {
+        overlayWrapper.appendChild(tabGradients[i])
+      }
+    }
+    filterNegativeBtn.classList.remove('active')
+  } else if (filterPositiveBtn.classList.contains('active')) {
+    console.log('negative if 2')
+    filterNegativeBtn.classList.add('active')
+    filterPositiveBtn.classList.remove('active')
+    for (let i = 0; i < tabGradients.length; i++) {
+      if (tabGradients[i].classList.contains('positive')) {
+        overlayWrapper.removeChild(tabGradients[i])
+      }
+    }
+    for (let i = 0; i < tabGradients.length; i++) {
+      if (tabGradients[i].classList.contains('negative')) {
+        overlayWrapper.appendChild(tabGradients[i])
+      }
+    }
+  } else {
+    console.log('negative else')
+    for (let i = 0; i < tabGradients.length; i++) {
+      if (tabGradients[i].classList.contains('positive')) {
+        overlayWrapper.removeChild(tabGradients[i])
+      }
+    }
+    filterNegativeBtn.classList.add('active')
+  }
 })
