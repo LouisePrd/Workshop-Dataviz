@@ -95,7 +95,7 @@ export function createLines(data) {
         let segment = child.path.segments[j]
 
         // A cylic value
-        let sinus = Math.sin((event.time / 200) * i + j)
+        let sinus = Math.sin((event.time / 250) * i + j)
 
         // Change the y position of the segment point
         segment.point.y = view.size.height / 2 + sinus * child.sum + i
