@@ -3,14 +3,10 @@
  */
 
 export async function fetchData() {
-  const res = await fetch(
-    'https://run.mocky.io/v3/5ac87915-1ef3-4015-8ffa-5752b6231719'
-  ).then(function (response) {
-    return response.json()
-  })
+  const res = require('./data.json')
   const cleanData = structData(res)
-  // console.log(structData(res))
   window.localStorage.setItem('data', JSON.stringify(cleanData))
+  console.log('set the local storage')
   return cleanData
 }
 
@@ -18,86 +14,89 @@ function structData(data) {
   var sizeData = Object.keys(data).length
   let people = []
   for (let i = 0; i < sizeData; i++) {
-    let person = {
-      name: data[i].name,
-      age: data[i].age,
+    const current = data[i]
+    const person = {
+      name: current.name,
+      age: current.age,
       moods: {
-        period: {
-          child: {
-            joy: data[i].joy_child,
-            anger: data[i].anger_child,
-            love: data[i].love_child,
-            fear: data[i].fear_child,
-            excitement: data[i].excitement_child,
-            loneliness: data[i].loneliness_child,
-            shame: data[i].shame_child,
-            satisfaction: data[i].satisfaction_child,
-            sadness: data[i].sadness_child,
-            frustration: data[i].frustration_child,
-            pleasure: data[i].pleasure_child,
-            jealousy: data[i].jealousy_child,
-            anxiety: data[i].anxiety_child,
-            inspiration: data[i].inspiration_child,
-            regret: data[i].regret_child,
-            boredom: data[i].boredom_child,
-            relief: data[i].relief_child,
+        child: {
+          positive: {
+            joy: current.joy_child,
+            love: current.love_child,
+            excitement: current.excitement_child,
+            satisfaction: current.satisfaction_child,
+            pleasure: current.pleasure_child,
+            inspiration: current.inspiration_child,
+            relief: current.relief_child,
           },
-          teen: {
-            joy: data[i].joy_teen,
-            anger: data[i].anger_teen,
-            love: data[i].love_teen,
-            fear: data[i].fear_teen,
-            excitement: data[i].excitement_teen,
-            loneliness: data[i].loneliness_teen,
-            shame: data[i].shame_teen,
-            satisfaction: data[i].satisfaction_teen,
-            sadness: data[i].sadness_teen,
-            frustration: data[i].frustration_teen,
-            pleasure: data[i].pleasure_teen,
-            jealousy: data[i].jealousy_teen,
-            anxiety: data[i].anxiety_teen,
-            inspiration: data[i].inspiration_teen,
-            regret: data[i].regret_teen,
-            boredom: data[i].boredom_teen,
-            relief: data[i].relief_teen,
+          negative: {
+            anger: current.anger_child,
+            loneliness: current.loneliness_child,
+            shame: current.shame_child,
+            sadness: current.sadness_child,
+            frustration: current.frustration_child,
+            jealousy: current.jealousy_child,
+            anxiety: current.anxiety_child,
           },
-          ya: {
-            joy: data[i].joy_ya,
-            anger: data[i].anger_ya,
-            love: data[i].love_ya,
-            fear: data[i].fear_ya,
-            excitement: data[i].excitement_ya,
-            loneliness: data[i].loneliness_ya,
-            shame: data[i].shame_ya,
-            satisfaction: data[i].satisfaction_ya,
-            sadness: data[i].sadness_ya,
-            frustration: data[i].frustration_ya,
-            pleasure: data[i].pleasure_ya,
-            jealousy: data[i].jealousy_ya,
-            anxiety: data[i].anxiety_ya,
-            inspiration: data[i].inspiration_ya,
-            regret: data[i].regret_ya,
-            boredom: data[i].boredom_ya,
-            relief: data[i].relief_ya,
+        },
+        teen: {
+          positive: {
+            joy: current.joy_teen,
+            love: current.love_teen,
+            excitement: current.excitement_teen,
+            satisfaction: current.satisfaction_teen,
+            pleasure: current.pleasure_teen,
+            inspiration: current.inspiration_teen,
+            relief: current.relief_teen,
           },
-          adult: {
-            joy: data[i].joy_adult,
-            anger: data[i].anger_adult,
-            love: data[i].love_adult,
-            fear: data[i].fear_adult,
-            excitement: data[i].excitement_adult,
-            loneliness: data[i].loneliness_adult,
-            shame: data[i].shame_adult,
-            satisfaction: data[i].satisfaction_adult,
-            sadness: data[i].sadness_adult,
-            frustration: data[i].frustration_adult,
-            pleasure: data[i].pleasure_adult,
-            jealousy: data[i].jealousy_adult,
-            anxiety: data[i].anxiety_adult,
-            inspiration: data[i].inspiration_adult,
-            regret: data[i].regret_adult,
-            boredom: data[i].boredom_adult,
-            relief: data[i].relief_adult,
+          negative: {
+            anger: current.anger_teen,
+            loneliness: current.loneliness_teen,
+            shame: current.shame_teen,
+            sadness: current.sadness_teen,
+            frustration: current.frustration_teen,
+            jealousy: current.jealousy_teen,
+            anxiety: current.anxiety_teen,
+          },
+        },
+        ya: {
+          positive: {
+            joy: current.joy_ya,
+            love: current.love_ya,
+            excitement: current.excitement_ya,
+            satisfaction: current.satisfaction_ya,
+            pleasure: current.pleasure_ya,
+            inspiration: current.inspiration_ya,
+            relief: current.relief_ya,
+          },
+          negative: {
+            anger: current.anger_ya,
+            loneliness: current.loneliness_ya,
+            shame: current.shame_ya,
+            sadness: current.sadness_ya,
+            frustration: current.frustration_ya,
+            jealousy: current.jealousy_ya,
+            anxiety: current.anxiety_ya,
+          },
+        },
+        adult: {
+          positive: {
+            joy: current.joy_adult,
+            love: current.love_adult,
+            excitement: current.excitement_adult,
+            satisfaction: current.satisfaction_adult,
+            pleasure: current.pleasure_adult,
+            inspiration: current.inspiration_adult,
+            relief: current.relief_adult,
+          },
+          negative: {
+            anger: current.anger_adult,
+            loneliness: current.loneliness_adult,
+            shame: current.shame_adult,
+            sadness: current.sadness_adult,
+            frustration: current.frustration_adult,
+            jealousy: current.jealousy_adult,
+            anxiety: current.anxiety_adult,
           },
         },
       },

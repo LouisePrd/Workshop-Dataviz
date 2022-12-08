@@ -1,50 +1,241 @@
-.layer {
+$white: #f8f8f8;
+$black: #212121;
+
+@mixin roundButton() {
+  border: 0.2rem solid $white;
+  border-radius: 50%;
+  height: 4rem;
+  width: 4rem;
+  cursor: pointer;
+  transition: 0.75s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition-property: transform, color, background-color;
+  filter: url(#n1);
+
+  &:hover {
+    background-color: $white;
+  }
+
+  &:hover svg path {
+    stroke: $black;
+  }
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+
+    path {
+      transition: 0.75s cubic-bezier(0.215, 0.61, 0.355, 1);
+      transition-property: stroke;
+    }
+  }
+}
+
+.bg {
   position: fixed;
   width: 100%;
   height: 100%;
   background-image: url('../../static/resources/background.png');
   background-size: 10%;
   opacity: 0.3;
-  z-index: 20;
+  z-index: 100;
   pointer-events: none;
-  // mix-blend-mode: difference;
 }
 
-.overlay {
+.splash {
   height: 100%;
   width: 100%;
   position: fixed;
-  background-color: #ffffff;
-  top: 0;
-  left: 0;
+  background-color: $black;
+  z-index: 40;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   opacity: 0;
   visibility: hidden;
-  z-index: 10;
-  transition: 0.75s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition-property: opacity, visibility;
+  filter: url(#n1);
 
   &.visible {
     opacity: 1;
     visibility: visible;
   }
 
-  #userCanvas {
+  &__title {
+    font-family: 'Bagnard';
+    font-size: 12.8rem;
+    line-height: 12.8rem;
+  }
+
+  &__subtitle {
+    font-weight: 500;
+  }
+
+  &__button {
+    margin-top: 2rem;
+    border: 0.1rem solid $white;
+    padding: 1.6rem 3rem;
+    border-radius: 0.8rem;
+    transition: 0.75s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-property: transform, color, background-color;
+    font-size: 1.4rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $white;
+      transform: scale(1.05);
+      color: $black;
+    }
+  }
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: $black;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 10;
+  transition: 0.75s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition-property: opacity, visibility;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__title {
+    font-family: 'Bagnard';
+    font-size: 10rem;
+    position: absolute;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    filter: url(#n1);
+
+    &.animate {
+      animation: 4s cubic-bezier(0.075, 0.82, 0.165, 1) entry;
+    }
   }
 
   .backBtn {
-    color: black;
     position: absolute;
-    top: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
     left: 2rem;
-    cursor: pointer;
-    z-index: 10;
+    @include roundButton();
+
+    &:hover {
+      transform: scale(1.05) translateY(-50%);
+    }
   }
 
-  img,
-  video {
+  .filters {
     position: absolute;
-    top: 0;
-    left: 0;
-    object-fit: contain;
-    pointer-events: none;
+    right: 2rem;
+    transform: translateY(-50%);
+    top: 50%;
+
+    &__button {
+      display: block;
+      position: relative;
+      top: 50%;
+      transform: translateY(0%);
+      @include roundButton();
+
+      &:first-of-type {
+        margin-bottom: 1.6rem;
+      }
+
+      &:hover {
+        transform: scale(1.05) translateY(0%);
+      }
+    }
   }
+
+  .timeframes {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-evenly;
+    filter: url(#n1);
+
+    &__item {
+      position: relative;
+      text-align: center;
+
+      &::after {
+        content: '';
+        height: 1rem;
+        width: 0.1rem;
+        background-color: $white;
+        display: block;
+        margin: 2.5rem auto auto auto;
+      }
+    }
+  }
+}
+
+.tooltip {
+  border-radius: 1.2rem;
+  padding: 0.8rem;
+  min-width: 10rem;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  opacity: 0;
+  visibility: hidden;
+  border: 0.1rem solid $white;
+  background-color: $black;
+  transition: 1.5s cubic-bezier(0.11, 0.9, 0.62, 1);
+  filter: url(#n1);
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes entry {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+
+  25% {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+}
+
+#layer {
+  display: none;
 }
