@@ -9,6 +9,7 @@ $black: #212121;
   cursor: pointer;
   transition: 0.75s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition-property: transform, color, background-color;
+  filter: url(#n1);
 
   &:hover {
     background-color: $white;
@@ -169,6 +170,7 @@ $black: #212121;
     bottom: 0;
     display: flex;
     justify-content: space-evenly;
+    filter: url(#n1);
 
     &__item {
       position: relative;
