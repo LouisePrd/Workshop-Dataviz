@@ -2,7 +2,7 @@
  * Lines
  */
 
-import { overlay, tooltip } from './dom'
+import { overlay, overlayTitle, tooltip } from './dom'
 import { createGradients } from './gradients'
 
 let amount = 10
@@ -81,6 +81,13 @@ export function createLines(data) {
       console.log(data[i].moods.child)
       overlay.classList.toggle('visible')
       isVisible = true
+
+      // TODO: move this later on
+      overlayTitle.innerHTML = data[i].name
+      overlayTitle.classList.add('animate')
+      overlayTitle.addEventListener('animationend', () => {
+        overlayTitle.classList.remove('animate')
+      })
 
       // createGradients(data[i])
     }
