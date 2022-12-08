@@ -1,0 +1,123 @@
+.mainDiv {
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.loneliness.div1 {
+    @include gradientBgOverlay('#A3A3A3', '#DDDDDD', '#A4A4A4', '#AFAFAF', '#CFCFCF', '#A3A3A3', '5');
+}
+
+.loneliness.div2 {
+    @include gradientBg('#ADADAD', '#959595', '#929292', '#6D6D6D', '#B0B0B0', '#ADADAD', '10');
+}
+
+.frustration.div1 {
+    @include gradientBgOverlay('#797FB4', '#A2A9CA', '#B2B8D9', '#8B9BBC', '#A2A3CB', '#797FB4', '5');
+}
+
+.frustration.div2 {
+    @include gradientBg('#C7D8F2', '#AEC1CE', '#D0D2E2', '#9FAECC', '#D9D2E4', '#C7D8F2', '10');
+}
+
+.sadness.div1 {
+    @include gradientBgOverlay('#3C4AC9', '#617AFF', '#95A6FF', '#95B9FF', '#9599FF', '#3C4AC9', '5');
+}
+
+.sadness.div2 {
+    @include gradientBg('#61A0FF', '#61BDFF', '#4B54A8', '#95B9FF', '#692AD1', '#61A0FF', '10');
+}
+
+.jealousy.div1 {
+    @include gradientBgOverlay('#8E7FBE', '#A38BB3', '#836297', '#744E8D', '#7862BF', '#8E7FBE', '5');
+}
+
+.jealousy.div2 {
+    @include gradientBg('#463447', '#6D4B83', '#8B7DB9', '#85649C', '#7C6AB6', '#463447', '10');
+}
+
+.anger.div1 {
+    @include gradientBgOverlay('#836AD2', '#580092', '#4F0080', '#580092', '#6041C2', '#836AD2', '5');
+}
+
+.anger.div2 {
+    @include gradientBg('#48264B', '#580092', '#421DB8', '#5F009F', '#6041C2', '#48264B', '10');
+}
+
+.anxiety.div1 {
+    @include gradientBgOverlay('#81D7B0', '#9AE7C5', '#78D6AB', '#A6C496', '#CBF3E1', '#81D7B0', '5');
+}
+
+.anxiety.div2 {
+    @include gradientBg('#9AE7C5', '#A1D9C0', '#8BCCAF', '#AED8A9', '#87D2B0', '#9AE7C5', '10');
+}
+
+.shame.div1 {
+    @include gradientBgOverlay('#629F8D', '#9CCDC1', '#7ECCC7', '#74ABA8', '#81C6B9', '#629F8D', '5');
+}
+
+.shame.div2 {
+    @include gradientBg('#537B72', '#4D7671', '#40655E', '#518888', '#568B82', '#537B72', '10');
+}
+
+
+.inspiration.div1 {
+    @include gradientBgOverlay('#D2AFBA', '#CFB9C0', '#CFB0C0', '#D996AB', '#C6A6B0', '#D2AFBA', '5');
+}
+
+.inspiration.div2 {
+    @include gradientBg('#C29C9D', '#C29C9D', '#BF748B', '#C08C9D', '#C58599', '#C29C9D', '10');
+}
+
+.love.div1 {
+    @include gradientBgOverlay('#F3A5BD', '#F3A5BD', '#FAD0E6', '#E40148', '#EC4F82', '#F3A5BD', '5');
+}
+
+.love.div2 {
+    // background: conic-gradient(, #EC4F82 211.88deg, #FF88AF 283.13deg, #F0789E 354.37deg, #D31419 360deg);
+    @include gradientBg('#D31419', '#D31419', '#E40148', '#EC4F82', '#FF88AF', '#D31419', '10');
+    // @include gradientBg('#D31419', '#D31419', '#E40148', '#EC4F82', '#FF76A2', '#F0789E', '10');
+}
+
+.pleasure.div1 {
+    @include gradientBgOverlay('#CC0001', '#B00338', '#FD0100', '#CB2702', '#B00338', '#CC0001', '5');
+}
+
+.pleasure.div2 {
+    @include gradientBg('#D31419', '#D31419', '#E40148', '#EC4F82', '#FD2B2E', '#D31419', '10');
+}
+
+.joy.div1 {
+    @include gradientBgOverlay('#FF7A01', '#E98202', '#FF7A01', '#FF7B02', '#FF9103', '#FF7A01', '10');
+}
+
+.joy.div2 {
+    @include gradientBg('#FF5D02', '#FD3B2F', '#FF6C02', '#FF9000', '#FF7D06', '#FF5D02', '10');
+}
+
+.excitment.div1 {
+    @include gradientBgOverlay('#FF7A01', '#E9B602', '#FF7A01', '#FFAF02', '#FF9103', '#FF7A01', '5');
+}
+
+.excitment.div2 {
+    @include gradientBg('#FF5D02', '#FD3B2F', '#FFAF02', '#FFE600', '#FF7D06', '#FF5D02', '10');
+}
+
+.satifaction.div1 {
+    @include gradientBgOverlay('#E7D7A0', '#FCE051', '#FDFFA5', '#FBE053', '#F9DD7A', '#E7D7A0', '5');
+}
+
+.satifaction.div2 {
+    @include gradientBg('#E8C445', '#F8D763', '#EEC772', '#FDE383', '#FFD69D', '#E8C445', '10');
+}
+
+.relief.div1 {
+    @include gradientBgOverlay('#FFF8B8', '#FFD67D', '#FFE1C7', '#FFE7B3', '#FFE9BB', '#FFF8B8', '5');
+}
+
+.relief.div2 {
+    @include gradientBg('#FFF2C1', '#FFF1BF', '#FFECC2', '#FEEDAE', '#FFE5C1', '#FFF2C1', '10');
+}

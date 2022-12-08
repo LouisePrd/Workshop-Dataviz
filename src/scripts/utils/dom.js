@@ -3,8 +3,13 @@
  */
 
 export let canvas = document.getElementById('mainCanvas')
-export let overlay = document.querySelector('.overlay')
+export let startBtn = document.querySelector('.startBtn')
 export let backBtn = document.querySelector('.backBtn')
+export let splash = document.querySelector('.splash')
+export let overlay = document.querySelector('.overlay')
+export let overlayWrapper = document.querySelector('.overlay__wrapper')
+export let overlayTitle = document.querySelector('.overlay__title')
+export let tooltip = document.querySelector('.tooltip')
 
 let dpr = window.devicePixelRatio
 
