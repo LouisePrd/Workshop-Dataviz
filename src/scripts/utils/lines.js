@@ -53,10 +53,11 @@ export function createLines(data) {
 
     path.onMouseEnter = function (event) {
       path.strokeColor = [1]
-      path.strokeWidth = 3
+      path.strokeWidth = 6
 
       tooltip.classList.add('visible')
-      tooltip.style.top = `${event.point.y}px`
+      tooltip.style.top = `${event.point.y - 50}px`
+      tooltip.style.left = `${event.point.x}px`
       tooltip.innerHTML = `${data[i].name}, ${data[i].age} ans`
 
       document.body.style.cursor = 'pointer'
