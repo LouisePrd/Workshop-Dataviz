@@ -6,6 +6,12 @@ export let canvas = document.getElementById('mainCanvas')
 export let startBtn = document.querySelector('.startBtn')
 export let bg = document.querySelector('.bg')
 export let backBtn = document.querySelector('.backBtn')
+export let filterPositiveBtn = document.querySelector(
+  '.filters__button--positive'
+)
+export let filterNegativeBtn = document.querySelector(
+  '.filters__button--negative'
+)
 export let splash = document.querySelector('.splash')
 export let overlay = document.querySelector('.overlay')
 export let filters = document.querySelector('.filters')

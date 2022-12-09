@@ -6,9 +6,14 @@ import {
   overlay,
   overlayTitle,
   overlayWrapper,
+  backBtn,
+  filterPositiveBtn,
+  filterNegativeBtn,
   overlayDetails,
   backBtn,
   canvas,
+  filterPositiveBtn,
+  filterNegativeBtn
 } from './dom'
 import { getRandomIntFromInterval } from './helpers'
 import paper, { view } from 'paper'
@@ -55,6 +60,8 @@ export function createGradients(data) {
   let rate
   let rateSize
   let age
+  let moodType
+  let idName = data.id
 
   /* Child */
 
@@ -68,9 +75,11 @@ export function createGradients(data) {
     if (i < sizeMoodList / 2) {
       mood = Object.keys(positiveDataChild)[i]
       rate = Object.values(positiveDataChild)[i]
+      moodType = 'positive'
     } else {
       mood = Object.keys(negativeDataChild)[idNegative]
       rate = Object.values(negativeDataChild)[idNegative]
+      moodType = 'negative'
       idNegative++
     }
 
@@ -84,16 +93,26 @@ export function createGradients(data) {
 
     const randTop = getRandomIntFromInterval(10, 90)
     const randLeft = getRandomIntFromInterval(0, 19)
-    age = 'child'
 
+    age = 'child'
     const wrapperDiv = document.createElement('div')
-    wrapperDiv.classList.add(`${age}${mood}`, 'moodWrapper')
+    wrapperDiv.classList.add(`${age}${mood}`, 'moodWrapper', moodType)
 
     wrapperDiv.style.width = rateSize + 'px'
     wrapperDiv.style.height = rateSize + 'px'
     wrapperDiv.style.position = 'absolute'
-    wrapperDiv.style.top = `${randTop}%`
-    wrapperDiv.style.left = `${randLeft}%`
+
+    if (localStorage.getItem(`${idName}${age}${mood}top`)) {
+      wrapperDiv.style.top =
+        localStorage.getItem(`${idName}${age}${mood}top`) + '%'
+      wrapperDiv.style.left =
+        localStorage.getItem(`${idName}${age}${mood}left`) + '%'
+    } else {
+      wrapperDiv.style.top = `${randTop}%`
+      wrapperDiv.style.left = `${randLeft}%`
+      localStorage.setItem(`${idName}${age}${mood}top`, randTop)
+      localStorage.setItem(`${idName}${age}${mood}left`, randLeft)
+    }
 
     wrapperDiv.appendChild(divGradient1)
     wrapperDiv.appendChild(divGradient2)
@@ -112,9 +131,11 @@ export function createGradients(data) {
     if (i < sizeMoodList / 2) {
       mood = Object.keys(positiveDataTeen)[i]
       rate = Object.values(positiveDataTeen)[i]
+      moodType = 'positive'
     } else {
       mood = Object.keys(negativeDataTeen)[idNegative]
       rate = Object.values(negativeDataTeen)[idNegative]
+      moodType = 'negative'
       idNegative++
     }
 
@@ -131,13 +152,23 @@ export function createGradients(data) {
 
     age = 'teen'
     const wrapperDiv = document.createElement('div')
-    wrapperDiv.classList.add(`${age}${mood}`, 'moodWrapper')
+    wrapperDiv.classList.add(`${age}${mood}`, 'moodWrapper', moodType)
 
     wrapperDiv.style.width = rateSize + 'px'
     wrapperDiv.style.height = rateSize + 'px'
     wrapperDiv.style.position = 'absolute'
-    wrapperDiv.style.top = `${randTop}%`
-    wrapperDiv.style.left = `${randLeft}%`
+
+    if (localStorage.getItem(`${idName}${age}${mood}top`)) {
+      wrapperDiv.style.top =
+        localStorage.getItem(`${idName}${age}${mood}top`) + '%'
+      wrapperDiv.style.left =
+        localStorage.getItem(`${idName}${age}${mood}left`) + '%'
+    } else {
+      wrapperDiv.style.top = `${randTop}%`
+      wrapperDiv.style.left = `${randLeft}%`
+      localStorage.setItem(`${idName}${age}${mood}top`, randTop)
+      localStorage.setItem(`${idName}${age}${mood}left`, randLeft)
+    }
 
     wrapperDiv.appendChild(divGradient1)
     wrapperDiv.appendChild(divGradient2)
@@ -156,9 +187,11 @@ export function createGradients(data) {
     if (i < sizeMoodList / 2) {
       mood = Object.keys(positiveDataYa)[i]
       rate = Object.values(positiveDataYa)[i]
+      moodType = 'positive'
     } else {
       mood = Object.keys(negativeDataYa)[idNegative]
       rate = Object.values(negativeDataYa)[idNegative]
+      moodType = 'negative'
       idNegative++
     }
 
@@ -175,13 +208,23 @@ export function createGradients(data) {
 
     age = 'ya'
     const wrapperDiv = document.createElement('div')
-    wrapperDiv.classList.add(`${age}${mood}`, 'moodWrapper')
+    wrapperDiv.classList.add(`${age}${mood}`, 'moodWrapper', moodType)
 
     wrapperDiv.style.width = rateSize + 'px'
     wrapperDiv.style.height = rateSize + 'px'
     wrapperDiv.style.position = 'absolute'
-    wrapperDiv.style.top = `${randTop}%`
-    wrapperDiv.style.left = `${randLeft}%`
+
+    if (localStorage.getItem(`${idName}${age}${mood}top`)) {
+      wrapperDiv.style.top =
+        localStorage.getItem(`${idName}${age}${mood}top`) + '%'
+      wrapperDiv.style.left =
+        localStorage.getItem(`${idName}${age}${mood}left`) + '%'
+    } else {
+      wrapperDiv.style.top = `${randTop}%`
+      wrapperDiv.style.left = `${randLeft}%`
+      localStorage.setItem(`${idName}${age}${mood}top`, randTop)
+      localStorage.setItem(`${idName}${age}${mood}left`, randLeft)
+    }
 
     wrapperDiv.appendChild(divGradient1)
     wrapperDiv.appendChild(divGradient2)
@@ -200,9 +243,11 @@ export function createGradients(data) {
     if (i < sizeMoodList / 2) {
       mood = Object.keys(positiveDataAdult)[i]
       rate = Object.values(positiveDataAdult)[i]
+      moodType = 'positive'
     } else {
       mood = Object.keys(negativeDataAdult)[idNegative]
       rate = Object.values(negativeDataAdult)[idNegative]
+      moodType = 'negative'
       idNegative++
     }
 
@@ -219,13 +264,24 @@ export function createGradients(data) {
 
     age = 'adult'
     const wrapperDiv = document.createElement('div')
-    wrapperDiv.classList.add(`${age}${mood}`, 'moodWrapper')
+    wrapperDiv.classList.add(`${age}${mood}`, 'moodWrapper', moodType)
 
     wrapperDiv.style.width = rateSize + 'px'
     wrapperDiv.style.height = rateSize + 'px'
     wrapperDiv.style.position = 'absolute'
-    wrapperDiv.style.top = `${randTop}%`
-    wrapperDiv.style.left = `${randLeft}%`
+
+
+    if (localStorage.getItem(`${idName}${age}${mood}top`)) {
+      wrapperDiv.style.top =
+        localStorage.getItem(`${idName}${age}${mood}top`) + '%'
+      wrapperDiv.style.left =
+        localStorage.getItem(`${idName}${age}${mood}left`) + '%'
+    } else {
+      wrapperDiv.style.top = `${randTop}%`
+      wrapperDiv.style.left = `${randLeft}%`
+      localStorage.setItem(`${idName}${age}${mood}top`, randTop)
+      localStorage.setItem(`${idName}${age}${mood}left`, randLeft)
+    }
 
     wrapperDiv.appendChild(divGradient1)
     wrapperDiv.appendChild(divGradient2)
@@ -268,8 +324,72 @@ backBtn.addEventListener('click', () => {
   overlay.classList.remove('visible')
 
   for (let i = 0; i < tabGradients.length; i++) {
-    overlayWrapper.removeChild(tabGradients[i])
+    if (overlayWrapper.contains(tabGradients[i])) {
+      overlayWrapper.removeChild(tabGradients[i])
+    }
   }
 
   tabGradients = []
+})
+
+filterPositiveBtn.addEventListener('click', () => {
+  if (filterPositiveBtn.classList.contains('active')) {
+    for (let i = 0; i < tabGradients.length; i++) {
+      if (tabGradients[i].classList.contains('negative')) {
+        overlayWrapper.appendChild(tabGradients[i])
+      }
+    }
+    filterPositiveBtn.classList.remove('active')
+  } else if (filterNegativeBtn.classList.contains('active')) {
+    filterPositiveBtn.classList.add('active')
+    filterNegativeBtn.classList.remove('active')
+    for (let i = 0; i < tabGradients.length; i++) {
+      if (tabGradients[i].classList.contains('negative')) {
+        overlayWrapper.removeChild(tabGradients[i])
+      }
+    }
+    for (let i = 0; i < tabGradients.length; i++) {
+      if (tabGradients[i].classList.contains('positive')) {
+        overlayWrapper.appendChild(tabGradients[i])
+      }
+    }
+  } else {
+    for (let i = 0; i < tabGradients.length; i++) {
+      if (tabGradients[i].classList.contains('negative')) {
+        overlayWrapper.removeChild(tabGradients[i])
+      }
+    }
+    filterPositiveBtn.classList.add('active')
+  }
+})
+
+filterNegativeBtn.addEventListener('click', () => {
+  if (filterNegativeBtn.classList.contains('active')) {
+    for (let i = 0; i < tabGradients.length; i++) {
+      if (tabGradients[i].classList.contains('positive')) {
+        overlayWrapper.appendChild(tabGradients[i])
+      }
+    }
+    filterNegativeBtn.classList.remove('active')
+  } else if (filterPositiveBtn.classList.contains('active')) {
+    filterNegativeBtn.classList.add('active')
+    filterPositiveBtn.classList.remove('active')
+    for (let i = 0; i < tabGradients.length; i++) {
+      if (tabGradients[i].classList.contains('positive')) {
+        overlayWrapper.removeChild(tabGradients[i])
+      }
+    }
+    for (let i = 0; i < tabGradients.length; i++) {
+      if (tabGradients[i].classList.contains('negative')) {
+        overlayWrapper.appendChild(tabGradients[i])
+      }
+    }
+  } else {
+    for (let i = 0; i < tabGradients.length; i++) {
+      if (tabGradients[i].classList.contains('positive')) {
+        overlayWrapper.removeChild(tabGradients[i])
+      }
+    }
+    filterNegativeBtn.classList.add('active')
+  }
 })

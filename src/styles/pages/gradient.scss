@@ -304,53 +304,20 @@
   );
 }
 
-.excitment.div1 {
-  @include gradientBgOverlay(
-    '#FF7A01',
-    '#E9B602',
-    '#FF7A01',
-    '#FFAF02',
-    '#FF9103',
-    '#FF7A01',
-    '10'
-  );
+.excitement.div1 {
+    @include gradientBgOverlay('#FF7A01', '#E9B602', '#FF7A01', '#FFAF02', '#FF9103', '#FF7A01', '5');
 }
 
-.excitment.div2 {
-  @include gradientBg(
-    '#FF5D02',
-    '#FD3B2F',
-    '#FFAF02',
-    '#FFE600',
-    '#FF7D06',
-    '#FF5D02',
-    '10'
-  );
+.excitement.div2 {
+    @include gradientBg('#FF5D02', '#FD3B2F', '#FFAF02', '#FFE600', '#FF7D06', '#FF5D02', '10');
 }
 
-.satifaction.div1 {
-  @include gradientBgOverlay(
-    '#E7D7A0',
-    '#FCE051',
-    '#FDFFA5',
-    '#FBE053',
-    '#F9DD7A',
-    '#E7D7A0',
-    '10'
-  );
+.satisfaction.div1 {
+    @include gradientBgOverlay('#E7D7A0', '#FCE051', '#FDFFA5', '#FBE053', '#F9DD7A', '#E7D7A0', '5');
 }
 
-.satifaction.div2 {
-  @include gradientBg(
-    '#E8C445',
-    '#F8D763',
-    '#EEC772',
-    '#FDE383',
-    '#FFD69D',
-    '#E8C445',
-    '10'
-  );
-}
+.satisfaction.div2 {
+    @include gradientBg('#E8C445', '#F8D763', '#EEC772', '#FDE383', '#FFD69D', '#E8C445', '10');
 
 .relief.div1 {
   @include gradientBgOverlay(
