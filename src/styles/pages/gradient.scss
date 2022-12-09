@@ -9,7 +9,7 @@
 .moodWrapper {
   cursor: pointer;
   transition: 1s cubic-bezier(0.215, 0.61, 0.355, 1);
-  border: 0.1rem solid rgba(0,0,0,0);
+  border: 0.1rem solid rgba(0, 0, 0, 0);
   transition-property: border-color;
   border-radius: 1.2rem;
   // filter: url(#n1);
@@ -305,40 +305,73 @@
 }
 
 .excitement.div1 {
-    @include gradientBgOverlay('#FF7A01', '#E9B602', '#FF7A01', '#FFAF02', '#FF9103', '#FF7A01', '5');
+  @include gradientBgOverlay(
+    '#FF7A01',
+    '#E9B602',
+    '#FF7A01',
+    '#FFAF02',
+    '#FF9103',
+    '#FF7A01',
+    '5'
+  );
 }
 
 .excitement.div2 {
-    @include gradientBg('#FF5D02', '#FD3B2F', '#FFAF02', '#FFE600', '#FF7D06', '#FF5D02', '10');
+  @include gradientBg(
+    '#FF5D02',
+    '#FD3B2F',
+    '#FFAF02',
+    '#FFE600',
+    '#FF7D06',
+    '#FF5D02',
+    '10'
+  );
 }
 
 .satisfaction.div1 {
-    @include gradientBgOverlay('#E7D7A0', '#FCE051', '#FDFFA5', '#FBE053', '#F9DD7A', '#E7D7A0', '5');
+  @include gradientBgOverlay(
+    '#E7D7A0',
+    '#FCE051',
+    '#FDFFA5',
+    '#FBE053',
+    '#F9DD7A',
+    '#E7D7A0',
+    '5'
+  );
 }
 
 .satisfaction.div2 {
-    @include gradientBg('#E8C445', '#F8D763', '#EEC772', '#FDE383', '#FFD69D', '#E8C445', '10');
-
-.relief.div1 {
-  @include gradientBgOverlay(
-    '#FFF8B8',
-    '#FFD67D',
-    '#FFE1C7',
-    '#FFE7B3',
-    '#FFE9BB',
-    '#FFF8B8',
-    '10'
-  );
-}
-
-.relief.div2 {
   @include gradientBg(
-    '#FFF2C1',
-    '#FFF1BF',
-    '#FFECC2',
-    '#FEEDAE',
-    '#FFE5C1',
-    '#FFF2C1',
+    '#E8C445',
+    '#F8D763',
+    '#EEC772',
+    '#FDE383',
+    '#FFD69D',
+    '#E8C445',
     '10'
   );
+
+  .relief.div1 {
+    @include gradientBgOverlay(
+      '#FFF8B8',
+      '#FFD67D',
+      '#FFE1C7',
+      '#FFE7B3',
+      '#FFE9BB',
+      '#FFF8B8',
+      '10'
+    );
+  }
+
+  .relief.div2 {
+    @include gradientBg(
+      '#FFF2C1',
+      '#FFF1BF',
+      '#FFECC2',
+      '#FEEDAE',
+      '#FFE5C1',
+      '#FFF2C1',
+      '10'
+    );
+  }
 }
