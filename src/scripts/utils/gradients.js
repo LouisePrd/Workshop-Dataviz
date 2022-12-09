@@ -2,12 +2,52 @@
  * Gradients
  */
 
-import { overlay, overlayTitle, overlayWrapper, backBtn } from './dom'
+import {
+  overlay,
+  overlayTitle,
+  overlayWrapper,
+  overlayDetails,
+  backBtn,
+  canvas,
+} from './dom'
 import { getRandomIntFromInterval } from './helpers'
+import paper, { view } from 'paper'
+import gsap from 'gsap'
 
 export let tabGradients = []
 
+let tl
+
+let mouseX = 0
+let mouseY = 0
+
 export function createGradients(data) {
+  // view.pause()
+  // paper.projects[0].remove()
+  // console.log(paper.projects)
+
+  gsap.defaults({
+    ease: 'power4.out',
+  })
+
+  tl = gsap.timeline()
+  tl.fromTo(
+    overlayTitle,
+    { x: '-50%', y: '-30%', fontSize: '10rem', opacity: 0, top: '50%' },
+    { duration: 1, delay: 1, x: '-50%', y: '-50%', opacity: 1, top: '50%' }
+  )
+  tl.to(overlayTitle, {
+    x: '-50%',
+    y: '0%',
+    fontSize: '3rem',
+    opacity: 1,
+    top: '2rem',
+    duration: 2,
+  })
+  tl.to(overlayWrapper, {
+    opacity: 1,
+    duration: 3,
+  })
 
   let idNegative = 0
   let mood
@@ -41,22 +81,13 @@ export function createGradients(data) {
 
     rateSize = rate * 50
 
-    divGradient1.style.height = 'inherit'
-    divGradient2.style.height = 'inherit'
-
-    divGradient1.style.width = 'inherit'
-    divGradient2.style.width = 'inherit'
-
-    divGradient1.style.position = 'inherit'
-    divGradient2.style.position = 'inherit'
-
     const randTop = getRandomIntFromInterval(10, 90)
     const randLeft = getRandomIntFromInterval(0, 19)
     age = 'child'
 
     const wrapperDiv = document.createElement('div')
-    wrapperDiv.classList.add(`${age}${mood}`)
-    
+    wrapperDiv.classList.add(`${age}${mood}`, 'moodWrapper')
+
     wrapperDiv.style.width = rateSize + 'px'
     wrapperDiv.style.height = rateSize + 'px'
     wrapperDiv.style.position = 'absolute'
@@ -94,21 +125,12 @@ export function createGradients(data) {
 
     rateSize = rate * 50
 
-    divGradient1.style.height = 'inherit'
-    divGradient2.style.height = 'inherit'
-
-    divGradient1.style.width = 'inherit'
-    divGradient2.style.width = 'inherit'
-
-    divGradient1.style.position = 'inherit'
-    divGradient2.style.position = 'inherit'
-
     const randTop = getRandomIntFromInterval(10, 90)
     const randLeft = getRandomIntFromInterval(27, 46)
 
     age = 'teen'
     const wrapperDiv = document.createElement('div')
-    wrapperDiv.classList.add(`${age}${mood}`)
+    wrapperDiv.classList.add(`${age}${mood}`, 'moodWrapper')
 
     wrapperDiv.style.width = rateSize + 'px'
     wrapperDiv.style.height = rateSize + 'px'
@@ -147,21 +169,12 @@ export function createGradients(data) {
 
     rateSize = rate * 50
 
-    divGradient1.style.height = 'inherit'
-    divGradient2.style.height = 'inherit'
-
-    divGradient1.style.width = 'inherit'
-    divGradient2.style.width = 'inherit'
-
-    divGradient1.style.position = 'inherit'
-    divGradient2.style.position = 'inherit'
-
     const randTop = getRandomIntFromInterval(10, 90)
     const randLeft = getRandomIntFromInterval(54, 73)
 
     age = 'ya'
     const wrapperDiv = document.createElement('div')
-    wrapperDiv.classList.add(`${age}${mood}`)
+    wrapperDiv.classList.add(`${age}${mood}`, 'moodWrapper')
 
     wrapperDiv.style.width = rateSize + 'px'
     wrapperDiv.style.height = rateSize + 'px'
@@ -200,51 +213,58 @@ export function createGradients(data) {
 
     rateSize = rate * 50
 
-    divGradient1.style.height = 'inherit'
-    divGradient2.style.height = 'inherit'
-
-    divGradient1.style.width = 'inherit'
-    divGradient2.style.width = 'inherit'
-
-    divGradient1.style.position = 'inherit'
-    divGradient2.style.position = 'inherit'
-
     const randTop = getRandomIntFromInterval(10, 90)
     const randLeft = getRandomIntFromInterval(81, 100)
 
     age = 'adult'
     const wrapperDiv = document.createElement('div')
-    wrapperDiv.classList.add(`${age}${mood}`)
+    wrapperDiv.classList.add(`${age}${mood}`, 'moodWrapper')
 
     wrapperDiv.style.width = rateSize + 'px'
     wrapperDiv.style.height = rateSize + 'px'
     wrapperDiv.style.position = 'absolute'
     wrapperDiv.style.top = `${randTop}%`
     wrapperDiv.style.left = `${randLeft}%`
-    
+
     wrapperDiv.appendChild(divGradient1)
     wrapperDiv.appendChild(divGradient2)
 
     tabGradients.push(wrapperDiv)
   }
 
-  // for (let i = 0; i < tabGradients.length; i++) {
-  //   overlayWrapper.appendChild(tabGradients[i])
-  // }
-
   tabGradients.forEach((child, i) => {
     overlayWrapper.appendChild(tabGradients[i])
-  })
 
+    // Handle hover
+    child.addEventListener('mouseover', (event) => {
+      const name = tabGradients[i].classList[0].replace(
+        /child|teen|ya|adult/,
+        ''
+      )
+      overlayDetails.innerHTML = name
+      overlayDetails.classList.add('visible')
+
+      mouseX = event.clientX
+      mouseY = event.clientY
+
+      overlayDetails.style.top = `${mouseY - 50}px`
+      overlayDetails.style.left = `${mouseX}px`
+    })
+
+    child.addEventListener('mouseout', (event) => {
+      overlayDetails.classList.remove('visible')
+    })
+  })
 }
 
-
-
 backBtn.addEventListener('click', () => {
-  overlay.classList.remove('visible')
-  overlayTitle.classList.remove('animate')
+  // view.play()
 
-  isVisible = false
+  gsap.set(overlayTitle, { clearProps: 'all' })
+  gsap.set(overlayWrapper, { clearProps: 'all' })
+  tl.kill()
+
+  overlay.classList.remove('visible')
 
   for (let i = 0; i < tabGradients.length; i++) {
     overlayWrapper.removeChild(tabGradients[i])
