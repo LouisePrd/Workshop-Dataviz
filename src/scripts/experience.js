@@ -9,13 +9,18 @@ import { fetchData } from './utils/database'
 
 paper.install(window)
 paper.setup('mainCanvas')
+canvas.style.display = 'none'
 
 window.addEventListener('load', async () => {
-  canvas.style.display = "none"
+  startBtn.style.visibility = 'visible'
 
   startBtn.addEventListener('click', () => {
     splash.classList.remove('visible')
-    canvas.style.display = "block"
+    canvas.style.display = 'block'
+
+    setTimeout(() => {
+      splash.remove()
+    }, 1000)
   })
 
   let res
@@ -27,8 +32,6 @@ window.addEventListener('load', async () => {
   }
 
   const data = res
-
-  let isVisible = false
 
   createLines(data)
 })

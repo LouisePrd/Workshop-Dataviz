@@ -2,10 +2,9 @@
  * Lines
  */
 
-import { overlay, overlayWrapper, overlayTitle, tooltip } from './dom'
+import { overlay, overlayWrapper, overlayTitle, tooltip, canvas } from './dom'
 import { createGradients } from './gradients'
 
-// Maybe play with this instead
 let amount = 10
 
 export function createLines(data) {
@@ -45,22 +44,20 @@ export function createLines(data) {
     })
 
     for (let j = 0; j <= amount; j++) {
-      // let nv = noise.simplex2(event.time / 10, event.time / 10)
-
       path.add(new Point(j * 200, 0))
       path.smooth({ type: 'continuous' })
     }
 
     path.onMouseEnter = function (event) {
       path.strokeColor = [1]
-      path.strokeWidth = 6
+      path.strokeWidth = 10
 
       tooltip.classList.add('visible')
       tooltip.style.top = `${event.point.y - 50}px`
       tooltip.style.left = `${event.point.x}px`
-      tooltip.innerHTML = `${data[i].name}, ${data[i].age} ans`
+      tooltip.innerHTML = `${data[i].name}, ${data[i].age}'`
 
-      document.body.style.cursor = 'pointer'
+      // document.body.style.cursor = 'pointer'
     }
 
     path.onMouseLeave = function (event) {
@@ -68,7 +65,7 @@ export function createLines(data) {
       path.strokeWidth = 3
       tooltip.classList.remove('visible')
 
-      document.body.style.cursor = 'auto'
+      // document.body.style.cursor = 'auto'
 
       // view.play()
     }
@@ -77,11 +74,12 @@ export function createLines(data) {
       path.strokeColor = [1]
 
       overlay.classList.add('visible')
-      overlayWrapper.classList.add("visible")
 
       overlayTitle.innerHTML = data[i].name
-      overlayTitle.classList.add('animate')
       createGradients(data[i])
+
+      view.pause()
+
     }
 
     paths.push({ path, sum })
@@ -89,8 +87,6 @@ export function createLines(data) {
 
   view.onFrame = function (event) {
     paths.forEach((child, i) => {
-      // let nv = noise.simplex2(event.time / 10, event.time / 10)
-
       for (let j = 0; j <= amount; j++) {
         let segment = child.path.segments[j]
 

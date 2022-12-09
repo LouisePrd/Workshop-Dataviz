@@ -6,7 +6,7 @@ export async function fetchData() {
   const res = require('./data.json')
   const cleanData = structData(res)
   window.localStorage.setItem('data', JSON.stringify(cleanData))
-  console.log('set the local storage')
+  console.log('Set the local storage')
   return cleanData
 }
 

@@ -16,15 +16,17 @@
       <div class="splash visible">
         <div class="splash__container">
           <h1 class="splash__title">Au fil du temps</h1>
-          <p class="splash__subtitle">Une introspection graphique</p>
-          <button class="splash__button startBtn">Commencer</button>
+          <p class="splash__subtitle">A graphic introspection</p>
+          <button class="splash__button startBtn">Start</button>
         </div>
       </div>
       <div class="tooltip"></div>
       <canvas id="mainCanvas" width="100%" height="100%" resize></canvas>
       <div class="overlay">
         <h2 class="overlay__title"></h2>
-        <div class="overlay__wrapper"></div>
+        <div class="overlay__wrapper">
+          <div class="overlay__details"></div>
+        </div>
         <button class="overlay__button backBtn">
           <svg
             width="23"
@@ -79,9 +81,9 @@
           </button>
         </div>
         <div class="timeframes">
-          <div class="timeframes__item">10 ans</div>
-          <div class="timeframes__item">15 ans</div>
-          <div class="timeframes__item">20 ans</div>
+          <div class="timeframes__item">10 years old</div>
+          <div class="timeframes__item">15 years old</div>
+          <div class="timeframes__item">20 years old</div>
         </div>
       </div>
     </main>
@@ -105,24 +107,6 @@
             in2="NOISE"
             in="BLURRED"
             scale="25"
-            xChannelSelector="R"
-            yChannelSelector="R"
-            result="DISPLACED"
-          ></feDisplacementMap>
-        </filter>
-        <filter id="n2">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.001 0.001"
-            numOctaves="1"
-            result="NOISE"
-            seed="1010"
-          ></feTurbulence>
-          <feDisplacementMap
-            id="displacer"
-            in2="NOISE"
-            in="BLURRED"
-            scale="1"
             xChannelSelector="R"
             yChannelSelector="R"
             result="DISPLACED"
