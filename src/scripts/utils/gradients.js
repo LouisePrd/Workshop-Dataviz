@@ -21,6 +21,7 @@ export function createGradients(data) {
   let rateSize
   let age
   let moodType
+  let idName = data.id
 
   /* Child */
 
@@ -70,14 +71,14 @@ export function createGradients(data) {
     wrapperDiv.style.height = rateSize + 'px'
     wrapperDiv.style.position = 'absolute'
     
-    if (localStorage.getItem(`${age}${mood}top`)) {
-      wrapperDiv.style.top = localStorage.getItem(`${age}${mood}top`) + '%'
-      wrapperDiv.style.left = localStorage.getItem(`${age}${mood}left`) + '%'
+    if (localStorage.getItem(`${idName}${age}${mood}top`)) {
+      wrapperDiv.style.top = localStorage.getItem(`${idName}${age}${mood}top`) + '%'
+      wrapperDiv.style.left = localStorage.getItem(`${idName}${age}${mood}left`) + '%'
     } else {
       wrapperDiv.style.top = `${randTop}%`
       wrapperDiv.style.left = `${randLeft}%`
-      localStorage.setItem(`${age}${mood}top`, randTop)
-      localStorage.setItem(`${age}${mood}left`, randLeft)
+      localStorage.setItem(`${idName}${age}${mood}top`, randTop)
+      localStorage.setItem(`${idName}${age}${mood}left`, randLeft)
     }
 
 
@@ -133,15 +134,16 @@ export function createGradients(data) {
     wrapperDiv.style.width = rateSize + 'px'
     wrapperDiv.style.height = rateSize + 'px'
     wrapperDiv.style.position = 'absolute'
+
     
-    if (localStorage.getItem(`${age}${mood}top`)) {
-      wrapperDiv.style.top = localStorage.getItem(`${age}${mood}top`) + '%'
-      wrapperDiv.style.left = localStorage.getItem(`${age}${mood}left`) + '%'
+    if (localStorage.getItem(`${idName}${age}${mood}top`)) {
+      wrapperDiv.style.top = localStorage.getItem(`${idName}${age}${mood}top`) + '%'
+      wrapperDiv.style.left = localStorage.getItem(`${idName}${age}${mood}left`) + '%'
     } else {
       wrapperDiv.style.top = `${randTop}%`
       wrapperDiv.style.left = `${randLeft}%`
-      localStorage.setItem(`${age}${mood}top`, randTop)
-      localStorage.setItem(`${age}${mood}left`, randLeft)
+      localStorage.setItem(`${idName}${age}${mood}top`, randTop)
+      localStorage.setItem(`${idName}${age}${mood}left`, randLeft)
     }
 
 
@@ -198,14 +200,14 @@ export function createGradients(data) {
     wrapperDiv.style.height = rateSize + 'px'
     wrapperDiv.style.position = 'absolute'
     
-    if (localStorage.getItem(`${age}${mood}top`)) {
-      wrapperDiv.style.top = localStorage.getItem(`${age}${mood}top`) + '%'
-      wrapperDiv.style.left = localStorage.getItem(`${age}${mood}left`) + '%'
+    if (localStorage.getItem(`${idName}${age}${mood}top`)) {
+      wrapperDiv.style.top = localStorage.getItem(`${idName}${age}${mood}top`) + '%'
+      wrapperDiv.style.left = localStorage.getItem(`${idName}${age}${mood}left`) + '%'
     } else {
       wrapperDiv.style.top = `${randTop}%`
       wrapperDiv.style.left = `${randLeft}%`
-      localStorage.setItem(`${age}${mood}top`, randTop)
-      localStorage.setItem(`${age}${mood}left`, randLeft)
+      localStorage.setItem(`${idName}${age}${mood}top`, randTop)
+      localStorage.setItem(`${idName}${age}${mood}left`, randLeft)
     }
 
 
@@ -262,14 +264,14 @@ export function createGradients(data) {
     wrapperDiv.style.height = rateSize + 'px'
     wrapperDiv.style.position = 'absolute'
 
-    if (localStorage.getItem(`${age}${mood}top`)) {
-      wrapperDiv.style.top = localStorage.getItem(`${age}${mood}top`) + '%'
-      wrapperDiv.style.left = localStorage.getItem(`${age}${mood}left`) + '%'
+    if (localStorage.getItem(`${idName}${age}${mood}top`)) {
+      wrapperDiv.style.top = localStorage.getItem(`${idName}${age}${mood}top`) + '%'
+      wrapperDiv.style.left = localStorage.getItem(`${idName}${age}${mood}left`) + '%'
     } else {
       wrapperDiv.style.top = `${randTop}%`
       wrapperDiv.style.left = `${randLeft}%`
-      localStorage.setItem(`${age}${mood}top`, randTop)
-      localStorage.setItem(`${age}${mood}left`, randLeft)
+      localStorage.setItem(`${idName}${age}${mood}top`, randTop)
+      localStorage.setItem(`${idName}${age}${mood}left`, randLeft)
     }
 
     wrapperDiv.appendChild(divGradient1)
@@ -300,7 +302,6 @@ backBtn.addEventListener('click', () => {
 
 filterPositiveBtn.addEventListener('click', () => {
   if (filterPositiveBtn.classList.contains('active')) {
-    console.log('positive if 1')
     for (let i = 0; i < tabGradients.length; i++) {
       if (tabGradients[i].classList.contains('negative')) {
         overlayWrapper.appendChild(tabGradients[i])
@@ -308,7 +309,6 @@ filterPositiveBtn.addEventListener('click', () => {
     }
     filterPositiveBtn.classList.remove('active')
   } else if (filterNegativeBtn.classList.contains('active')) {
-    console.log('positive if 2')
     filterPositiveBtn.classList.add('active')
     filterNegativeBtn.classList.remove('active')
     for (let i = 0; i < tabGradients.length; i++) {
@@ -322,7 +322,6 @@ filterPositiveBtn.addEventListener('click', () => {
       }
     }
   } else {
-    console.log('positive else')
     for (let i = 0; i < tabGradients.length; i++) {
       if (tabGradients[i].classList.contains('negative')) {
         overlayWrapper.removeChild(tabGradients[i])
@@ -334,7 +333,6 @@ filterPositiveBtn.addEventListener('click', () => {
 
 filterNegativeBtn.addEventListener('click', () => {
   if (filterNegativeBtn.classList.contains('active')) {
-    console.log('negative if 1')
     for (let i = 0; i < tabGradients.length; i++) {
       if (tabGradients[i].classList.contains('positive')) {
         overlayWrapper.appendChild(tabGradients[i])
@@ -342,7 +340,6 @@ filterNegativeBtn.addEventListener('click', () => {
     }
     filterNegativeBtn.classList.remove('active')
   } else if (filterPositiveBtn.classList.contains('active')) {
-    console.log('negative if 2')
     filterNegativeBtn.classList.add('active')
     filterPositiveBtn.classList.remove('active')
     for (let i = 0; i < tabGradients.length; i++) {
@@ -356,7 +353,6 @@ filterNegativeBtn.addEventListener('click', () => {
       }
     }
   } else {
-    console.log('negative else')
     for (let i = 0; i < tabGradients.length; i++) {
       if (tabGradients[i].classList.contains('positive')) {
         overlayWrapper.removeChild(tabGradients[i])

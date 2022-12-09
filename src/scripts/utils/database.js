@@ -16,6 +16,7 @@ function structData(data) {
   for (let i = 0; i < sizeData; i++) {
     const current = data[i]
     const person = {
+      id : i,
       name: current.name,
       age: current.age,
       moods: {
