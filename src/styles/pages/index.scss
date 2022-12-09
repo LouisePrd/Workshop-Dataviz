@@ -155,6 +155,14 @@ $black: #171616;
       transform: scale(1) translateY(0%);
       @include roundButton();
 
+      &.active {
+        background-color: $white;
+
+        svg path {
+          stroke: $black;
+        }
+      }
+
       &:first-of-type {
         margin-bottom: 1.6rem;
       }
