@@ -28,6 +28,7 @@ export function createGradients(data) {
 
   gsap.defaults({
     ease: 'power4.out',
+    force3D: false,
   })
 
   tl = gsap.timeline()

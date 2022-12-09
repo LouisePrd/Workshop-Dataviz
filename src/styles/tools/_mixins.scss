@@ -20,7 +20,3 @@
     #{$color6} 360deg);
   filter: blur(#{$blur}px);
 }
-
-@mixin borderBlue {
-  border: 2px solid #0000FF;
-}

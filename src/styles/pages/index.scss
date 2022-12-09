@@ -9,7 +9,7 @@ $black: #171616;
   cursor: pointer;
   transition: 0.75s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition-property: transform, color, background-color;
-  // filter: url(#n1);
+  filter: url(#n1);
 
   &:hover {
     background-color: $white;
@@ -58,7 +58,7 @@ $black: #171616;
   visibility: hidden;
   transition: 1s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition-property: opacity, visibility;
-  // filter: url(#n1);
+  filter: url(#n1);
 
   &.visible {
     opacity: 1;
@@ -115,7 +115,7 @@ $black: #171616;
   &__title {
     font-family: 'Bagnard';
     position: absolute;
-    // filter: url(#n1);
+    filter: url(#n1);
     left: 50%;
     z-index: 100;
     opacity: 0;
@@ -172,7 +172,7 @@ $black: #171616;
     display: flex;
     justify-content: space-evenly;
     z-index: 90;
-    // filter: url(#n1);
+    filter: url(#n1);
 
     &__item {
       position: relative;
@@ -200,7 +200,7 @@ $black: #171616;
     border: 0.1rem solid $white;
     background-color: $black;
     transition: 1.5s cubic-bezier(0.11, 0.9, 0.62, 1);
-    // filter: url(#n1);
+    filter: url(#n1);
     z-index: 90;
     text-transform: capitalize;
     text-align: center;
@@ -227,7 +227,7 @@ $black: #171616;
   transition: 1.5s cubic-bezier(0.11, 0.9, 0.62, 1);
   z-index: 50;
   pointer-events: none;
-  // filter: url(#n1);
+  filter: url(#n1);
 
   &.visible {
     opacity: 1;
