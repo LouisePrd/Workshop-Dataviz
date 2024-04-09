@@ -1,6 +1,7 @@
 # Au Fil du Temps
 
-Introspection graphique sur les émotions de la promo BDDI 2023
+**Among the lines**<br>
+Graphic introspection on the emotions of Gobelins' BDDI 2023 class. 
 <br>https://peaceful-tapioca-3fb914.netlify.app/ <br>
 
 
