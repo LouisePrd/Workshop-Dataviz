@@ -7,7 +7,7 @@ import { createLines } from './utils/lines'
 import { splash, startBtn, overlay, canvas } from './utils/dom'
 import { fetchData } from './utils/database'
 
-paper.install(window)
+
 paper.setup('mainCanvas')
 canvas.style.display = 'none'
 

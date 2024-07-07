@@ -2,6 +2,7 @@
  * Lines
  */
 
+ import { Path, Point, view } from 'paper'
 import { overlay, overlayWrapper, overlayTitle, tooltip, canvas } from './dom'
 import { createGradients } from './gradients'
 
@@ -78,7 +79,7 @@ export function createLines(data) {
       overlayTitle.innerHTML = data[i].name
       createGradients(data[i])
 
-      view.pause()
+      // view.pause()
 
     }
 

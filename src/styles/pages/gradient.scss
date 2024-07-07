@@ -11,7 +11,7 @@
   border: 0.1rem solid rgba(0, 0, 0, 0);
   transition-property: border-color;
   border-radius: 1.2rem;
-  // filter: url(#n1);
+  filter: url(#n1);
 
   &:hover {
     border: 0.1rem solid $white;
